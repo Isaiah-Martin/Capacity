@@ -17,57 +17,95 @@
 			<li><a href="New_Beginnings.html">Home</a></li>
 			<li><a href="Us.html">About Us</a></li>  
 			<li><a href="Us.html#Contact_Us">Contact Us</a></li>
-			<li><a href="Basic_Information.html">Basic Information</a></li>
+			<li class="active"><a href="Basic_Information.html">Basic Information</a></li>
 		  </ul>
 		</div>
 	</div> 
   </div>
+  	<h1>Basic Information</h1>
   <br>
   <br>
   <div class= "container-fluid">
   	<div class="row">
-	<div class="col-sm-6">
-		<form class="form-horizontal" role="form">
+	<div class="col-sm-12">
+		<form class="form-horizontal" role="form" method="POST" action="http://localhost:5000/submit">
 	    <div class="form-group">
+	    	<div class="col-sm-4">
 		  	<label for="textarea">Greatest Challenge you think you'll have this year</label>
-		    <textarea class="form-control" rows="3" placeholder="example: Balancing my academic and social life"></textarea><br><br>
+		    <textarea class="form-control" rows="3" name="focus"placeholder="example: Balancing my academic and social life"></textarea><br><br>
 		    <label for="text">Student Name</label>
-		    <input type="text" class="form-control" id="Name" placeholder="example: Isaiah Martin"><br><br>
+		    <input type="text" class="form-control" id="Name" name="Username" placeholder="example: Isaiah Martin"><br><br>
 		    <label for="text">Date of Birth</label>
-		    <input type="text" class="form-control" id="Class" placeholder="example: 1/10/97"><br><br>
+		    <input type="text" class="form-control" id="Class" name="Birth" placeholder="example: 1/10/97"><br><br>
 		    <label for="select">Class</label>
-		    <select class="form-control">
+		    <select class="form-control" name="Class">
 			    <option>Freshman</option>
 			    <option>Sophomore</option>
 			    <option>Junior</option>
 			    <option>Senior</option>
 		    </select><br><br>
-		    <label for="text">Current GPA</label>
-		    <input type="text" class="form-control" id="GPA" placeholder="example: 3.22"><br><br>
-		    <label for="text">GPA You Want to Aim for Next Semester</label>
-		    <input type="text" class="form-control" id="GoalGPA" placeholder="example: 3.63"><br><br>
+		    <label for="text">Current Unweighted GPA</label>
+		    <input type="text" class="form-control" id="GPA" name="UPA" placeholder="example: 3.22"><br><br>
+		    <label for="text">Unweighted GPA You Want to Aim for Next Semester</label>
+		    <input type="text" class="form-control" id="GoalGPA" name="GPA"  placeholder="example: 3.63"><br><br>
 		    <label for="text">Community Service Hours You Want to Aim for Next Semester</label>
-		    <input type="text" class="form-control" id="GoalCS" placeholder="example: 50"><br><br>
-		  </div>
-		  <button type="submit" class="btn btn-default"><a href= "Student_Page.html">Submit</a></button>   
+		    <input type="text" class="form-control" id="GoalCS" name="CSH" placeholder="example: 50"><br><br>
+		  
+		  <button type="submit" class="btn btn-default">Submit</button>   
 		  </form>
 		</div>
-		<div class="col-sm-offset-8 col-md-4">
-				<br><br><br><br><br><br><br><br><br>
-				<p class= "lead"><br>"Greatness is in the making.<br>I'm making up this quote cuz this is an outline and<br>I'm taking up space!</p>
-		</div>
-  		</div>
+		<div class="col-sm-offset-2 col-sm-6">
+			<div id="myCarousel" class="carousel slide">
+						<div class="carousel-inner">
+							<div class="item active">
+								<h1>With the new day comes new strength and new thoughts.<br><br>    -Eleanor Roosevelt</h1>
+								<div class="carousel-caption">
+									<h4 align="right"></h4>
+								</div>
+							</div>
+						<div class="item">
+							<h1>Coming together is a beginning; keeping together is progress; working together is success.<br><br>   -Henry Ford</h1>
+							<div class="carousel-caption">
+								<h4 align="right"></h4>
+							</div>
+						</div>
+						<div class="item">
+							<h1>If there is no struggle, there is no progress.<br><br>    -Fredrick Douglas</h1>
+							<div class="carousel-caption">
+								<h4 align="right"></h4>
+							</div>
+						</div>
+						<div class="item">
+							<h1>Strength and growth come only through continuous effort and struggle.<br><br>   -Napoleon Hill</h1>
+							<div class="carousel-caption">
+								<h4 align="right"></h4>
+							</div>
+						</div>
+						<div class="item">
+							<h1>Nothing is impossible, the word itself says 'I'm possible'!<br><br>     -Audrey Hepburn</h1>
+							<div class="carousel-caption">
+								<h4 align="right"></h4>
+							</div>
+						</div>
+
+					</div>
+			</div>
 	  	</div>
   	</div>
   </div>
   </div>
-  <br>
-  <ul class="nav nav-pills nav-justified">
-			<li><a href="New_Beginnings.html">Home</a></li>
-			<li><a href="Us.html">About Us</a></li>  
-			<li><a href="Us.html#Contact_Us">Contact Us</a></li>
-			<li><a href="Basic_Information.html">Basic Information</a></li>
-		  </ul>
+		  
+      <!-- JavaScript plugins (requires jQuery) -->
+   <script src="http://code.jquery.com/jquery.js"></script>
+   <!-- Include all compiled plugins (below), or include individual files as needed -->
+   <script src="js/bootstrap.js"></script>
+<script>
+$(function(){
+ $('#myCarousel').carousel({
+ interval: 6000
+ });
+});
+</script>
   </body>
 </html>
 

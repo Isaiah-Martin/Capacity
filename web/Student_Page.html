@@ -15,7 +15,7 @@
 		<div class ="navbar-inner">
 		  <ul class="nav nav-pills nav-left">
 			<li><a href="New_Beginnings.html">Home</a></li>
-			<li><a href="Student_Page.html">Student Page</a></li>
+			<li class="active"><a href="Student_Page.html">Student Page</a></li>
 			<li><a href="Basic_Information.html">Basic Information</a></li>
 			<li><a href="Us.html">About Us</a></li>  
 			<li><a href="Us.html#Contact_Us">Contact Us</a></li>
@@ -24,25 +24,60 @@
 	</div> 
   </div>
   <br>
+  	<div class="container-fluid">
+  	<div class="jumbotron">
   	<div class="row">
-  		<div class="col-sm-offset-3 col-sm-5 col-sm-offset-4">
-  			<div class=".col-lg-8"><h2>Focus of the Year:</h2><br>Balancing my academic and social life</div><br><br>
+  		<div class="col-sm-3">
+  					<h2>Focus of the Year:</h2><p class="lead">Balancing my academic and social life</p>
+				</div>
+				<div class="col-sm-offset-3 col-sm-6">
+  				<div id="myCarousel" class="carousel slide">
+					<div class="carousel-inner">
+						<div class="item active">
+							<h3>With the new day comes new strength and new thoughts.<br><br>    -Eleanor Roosevelt</h3>
+							<div class="carousel-caption">
+								<h4 align="right"></h4>
+							</div>
+						</div>
+					<div class="item">
+						<h3>Coming together is a beginning; keeping together is progress; working together is success.<br><br>   -Henry Ford</h3>
+						<div class="carousel-caption">
+							<h4 align="right"></h4> 
+						</div>
+					</div>
+					<div class="item">
+						<h3>If there is no struggle, there is no progress.<br><br>    -Fredrick Douglas</h3>
+						<div class="carousel-caption">
+							<h4 align="right"></h4>
+						</div>
+					</div>
+					<div class="item">
+						<h3>Strength and growth come only through continuous effort and struggle.<br><br>   -Napoleon Hill</h3>
+						<div class="carousel-caption">
+							<h4 align="right"></h4>
+						</div>
+					</div>
+					<div class="item">
+						<h3>Nothing is impossible, the word itself says 'I'm possible'!<br><br>     -Audrey Hepburn</h3>
+						<div class="carousel-caption">
+							<h4 align="right"></h4>
+						</div>
+					</div>
+				</div>
+  			</div>
   		</div>
   	</div>
-  </div>
- 
-  <div class= "container-fluid">
-  	<div class="row">
-	<div class="col-sm-4">
-		<h2>Inspiration</h2>
-		<h3 class="lead">Quote</h3><p class="lead"><br>"Greatness is in the making.<br>I'm making up this quote cuz this is an outline<br>I'm taking up space!"<br>   -Capacity</p>
-	</div>
-	<div class="col-sm-offset-2 col-sm-6">
+  	</div>
+
+	<div class="col-sm-5">
 		<h2>Outside of School</h2>
 		<h3 class="lead">Extra-Curricular Activities</h3><br>
 			<ol>
-				<li><input type="text"></ul><br><br>
-				<li><input type="text"></ul>
+				<form class="form-horizontal" role="form" method="POST" action="http://localhost:5000/submit">
+				<li><input type="text" name="act1" ></ul><br><br>
+				<li><input type="text" name="act2" ></ul>
+				<button type="submit" class="btn btn-default">Submit</button>  
+				</form>
 			</ol>
 			<h3 class="lead">Tips</h3>
 				<ul>
@@ -53,47 +88,61 @@
 				<br>
 				<br>
 		</div>
-	</div>
-	</div>
-  </div>
-  </div>
-  <br>
-  <br>
-  <div class= "container">
-  	<div class="row-fluid">
-	<div class="col-sm-4">
+		<div class="col-sm-offset-2 col-sm-5">
 		<h2>Planning</h2>
 		<h3 class="lead">Goals</h3>
 		<ul>
 		<li class="lead">For The Week</li>
-			<input type="text"><br><br>
-			<input type="text">
+			<form class="form-horizontal" role="form" method="POST" action="http://localhost:5000/submit">	
+			<input type="text" name="WG1" value="1WG"><br><br>
+			<input type="text" name="WG2" value="2WG">
+			<button type="submit" class="btn btn-default">Submit</button>
+			</form>  
 		<li class="lead">For The Month</li>
-			<input type="text"><br><br>
-			<input type="text">
+			<form class="form-horizontal" role="form" method="POST" action="http://localhost:5000/submit">
+			<input type="text" name="MG1" value="1MG"><br><br>
+			<input type="text" name="MG2" value="MG2">
+			<button type="submit" class="btn btn-default">Submit</button>  
+			</form>
 		<li class="lead">For The Year</li>
-			<input type="text"><br><br>
-			<input type="text">
+			<form class="form-horizontal" role="form" method="POST" action="http://localhost:5000/submit">
+			<input type="text" name="YG1" value="1YG"><br><br>
+			<input type="text" name="YG2" value="2YG">
+			<button type="submit" class="btn btn-default">Submit</button>  
+			</form>
 	</div>
-	<div class="col-sm-offset-1 col-sm-6">
+	</div>
+	</div>
+  </div>
+  </div>
+  <br>
+  <div class= "container-fluid">
+  	<div class="row">
+  		<div class="col-sm-offset-2 col-sm-8">
+	  	<div class="jumbotron"</div>
 			<h1>Community Service</h1>
-			<button type="button" class="btn btn-lg btn-primary"><h1>Update Community Service</h1></button><br><br>
+			<a href="Community_Service.html"><button type="button" class="btn btn-lg btn-warning"><h2>Update Community Service</h2></button></a><br><br>
 			<h5 class="lead">How Close You Are To Your Goal</h5>
 			<div class="progress">
-				<div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-	valuemin="0" aria-valuemax="100" style="width: 80%">80%
+				<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-	valuemin="0" aria-valuemax="100" style="width: 80%">80% complete
 					<span class="sr-only">80% Complete (danger)</span>
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>
 	</div>
   </div>
   </div>
-    <div class= "container">
-  	<div class="row-fluid">
-	<div class="col-lg-offset-2 col-lg-8 col-lg-offset-2">
-			<h3 class="lead">Aim towards a 3.67 GPA this year</h3>
+  	
+	<div class="jumbotron">
+    <div class= "container-fluid">
+  	<div class="row">
+	<div class="col-sm-offset-3 col-sm-6">
+		<br>
+			<h2>Aim towards a 3.67 GPA this year</h2>
 		</div>
+	</div>
 	</div>
   	</div>
     </div>
@@ -102,7 +151,7 @@
 		<div class ="navbar-inner">
 		  <ul class="nav nav-pills nav-left">
 			<li><a href="New_Beginnings.html">Home</a></li>
-			<li><a href="Student_Page.html">Student Page</a></li>
+			<li class="active"><a href="Student_Page.html">Student Page</a></li>
 			<li><a href="Basic_Information.html">Basic Information</a></li>
 			<li><a href="Us.html">About Us</a></li>  
 			<li><a href="Us.html#Contact_Us">Contact Us</a></li>
@@ -110,6 +159,18 @@
 		</div>
 	</div> 
   </div>
+  
+        <!-- JavaScript plugins (requires jQuery) -->
+   <script src="http://code.jquery.com/jquery.js"></script>
+   <!-- Include all compiled plugins (below), or include individual files as needed -->
+   <script src="js/bootstrap.js"></script>
+<script>
+$(function(){
+ $('#myCarousel').carousel({
+ interval: 2000
+ });
+});
+</script>
   </body>
   </html>			
 		

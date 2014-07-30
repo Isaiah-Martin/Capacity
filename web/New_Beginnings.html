@@ -10,7 +10,7 @@
   </head>
   <body>
 	  <ul class="nav nav-tabs" role="tablist">
-		  <li><a href="New_Beginnings.html">Home</a></li>
+		  <li class="active"><a href="New_Beginnings.html">Home</a></li>
 		  <li><a href="Us.html">About Us</a></li>  
 		  <li><a href="Us.html#Contact_Us">Contact Us</a></li>
 		  <li><a href="Sign_In.html">Sign In</a></li>
@@ -19,7 +19,7 @@
 
 		<div class= "container-fluid">
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-sm-6">
 				<br>
 				<br>
 				<h2 class="lead">With Capacity You Can</h2>
@@ -30,8 +30,7 @@
 					<li class="lead">Monitor your future high school plans</li>
 				</ul>
 				</div>
-				<div class="col-sm-offset-6 col-md-6">
-					<br><br>
+				<div class="col-sm-6">
 					<div id="myCarousel" class="carousel slide">
 						<ol class="carousel-indicators">
 							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -40,7 +39,7 @@
 						</ol>
 						<div class="carousel-inner">
 							<div class="item active">
-								<img src="https://images.indiegogo.com/file_attachments/727947/files/20140718175028-900x500_students.jpg?1405731028" alt="" height="900" width="500">
+								<img src="https://images.indiegogo.com/file_attachments/727947/files/20140718175028-900x500_students.jpg?1405731028">
 								<div class="carousel-caption">
 									<h4 align="right">Balance social and academic life</h4>
 								</div>
@@ -67,51 +66,28 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-sm-offset-1 col-sm-11">
-					<p class="lead">"Greatness is in the making.<br>
-					I'm making up this quote cuz this is an outline<br>
-					I'm taking up space!<br>
-					We can enter a quote here to get people inspired,<br> 
-					and also take up a ton of space!"</p>
+		<div class= "container-fluid">
+		   <div class="row">
+			<div class="col-sm-6">
+					<br><br><br><br>
+					<p class="lead">"Greatness is in the making.
+					I'm making up this quote cuz this is an outline
+					I'm taking up space!
+					We can enter a quote here to get people inspired,
+					and also take up a ton of space!"
 			</div>
-		</div>
-</div>
-  </div>
-  </div>
-  </div>
-  
-		<div class="container-fluid">
-				<div class="row">
-					<br>
-					<br>
-					<div class="col-sm-offset-1 col-sm-11">
-					<h3>Get Started by entering your email.</h3>
-					</div>
-					<form class="form-horizontal" role="form">
+					<div class="col-sm-6">
+						<h3>Get Started by entering your email</h3>
+					<form class="form-inline" role="form" method="POST" action="http://localhost:5000/submit">
 					  <div class="form-group">
-					    <label for="inputEmail3" class="col-sm-1 control-label">Email</label>
-					    <div class="col-sm-6">
-					      <input type="email" class="form-control" id="email" placeholder="Enter Your Email Address">
-					    </div>
+					      <input type="text" class="form-control" id="Email1" name="EmailInput1" placeholder="Enter Email Address">
+					      <button type="submit" class="btn btn-success">Reach Your Capacity</a>
 					  </div>
-						<div class="form-group">
-					    <div class="col-sm-offset-2 col-sm-10">
-					      <button type="submit" class="btn btn-default"><a href="Basic_Information.html">Reach Your Capacity</a></button>
 					</form>
+					</div>
 				</div>
-				</div>
-			</div>
 		</div>
-	</div>
-	<br>
-	 <ul class="nav nav-tabs" role="tablist">
-		  <li><a href="New_Beginnings.html">Home</a></li>
-		  <li><a href="Us.html">About Us</a></li>  
-		  <li><a href="Us.html#Contact_Us">Contact Us</a></li>
-		  <li><a href="Sign_In.html">Sign In</a></li>
-	  </ul> 
-  
+  <br><br>
       <!-- JavaScript plugins (requires jQuery) -->
    <script src="http://code.jquery.com/jquery.js"></script>
    <!-- Include all compiled plugins (below), or include individual files as needed -->
