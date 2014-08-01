@@ -89,16 +89,16 @@
 	<form class="form-horizontal" role="form" method="POST" action="http://localhost:5000/submit4">	
 	<div class="form-group">
 	<div class="col-sm-offset-1 col-sm-4 col-sm-offset-1">
-	    	<label for="text">Date</label>
-		    <input type="text" class="form-control" id="Date" name="Date"  placeholder="example: 11/4/14"><br><br>
+	    	<label for="text" required>Date</label>
+		    <input type="text" class="form-control" id="Date" name="Date"  placeholder="example: 11/4/14" required><br><br>
 		  	<label for="textarea">Duties</label>
-		    <textarea class="form-control" rows="3" name="Duties" placeholder="example: Cleaning Bathrooms, Raking Leaves, and serving food"></textarea><br><br>
+		    <textarea class="form-control" rows="3" name="Duties" placeholder="example: Cleaning Bathrooms, Raking Leaves, and serving food" required></textarea><br><br>
 		    <label for="text">Time Spent Volunteering</label>
-		    <input type="text" class="form-control" id="TimeSpent" name="Time"  placeholder="example: 5hrs 15min"><br><br>
+		    <input type="text" class="form-control" id="TimeSpent" name="Time"  placeholder="example: 5hrs 15min" required><br><br>
 		    <label for="text">Organization</label>
-		    <input type="text" class="form-control" id="OrgLead" name="Organization" placeholder="example: Randy's Community Service Center"><br><br>
+		    <input type="text" class="form-control" id="OrgLead" name="Organization" placeholder="example: Randy's Community Service Center" required><br><br>
 		    <label for="text">Organization Leader</label>
-		    <input type="text" class="form-control" id="OrgLead" name="OrgLead"  placeholder="example: Randy Billy Bob Thorton">
+		    <input type="text" class="form-control" id="OrgLead" name="OrgLead"  placeholder="example: Randy Billy Bob Thorton" required>
 		  </div>
 		</div>
 
@@ -130,19 +130,19 @@
 			<td>For The Month</td>
 			<td>For The Year"</td>
 		<tr>	
-			<td><input type="text" name="Wk1"></td>
-			<td><input type="text" name="Wk2"></td>
-			<td><input type="text" name="Wk3"></td>
+			<td><input type="text" name="Wk1" required></td>
+			<td><input type="text" name="Wk2" required></td>
+			<td><input type="text" name="Wk3" required></td>
 		</tr>
 		<tr>
-			<td><input type="text" name="M1"></td>
-			<td><input type="text" name="M2"></td>
-			<td><input type="text" name="M3"></td>
+			<td><input type="text" name="M1" required></td>
+			<td><input type="text" name="M2" required></td>
+			<td><input type="text" name="M3" required></td>
 		</tr> 
 		<tr>
-			<td><input type="text" name="Y1"></td>
-			<td><input type="text" name="Y2"></td>
-			<td><input type="text" name="Y3"></td>
+			<td><input type="text" name="Y1" required></td>
+			<td><input type="text" name="Y2" required></td>
+			<td><input type="text" name="Y3" required></td>
 		</tr>
 		</table>
 		<button type="submit" class="btn btn-success btn-block">Save</button><br><br> 

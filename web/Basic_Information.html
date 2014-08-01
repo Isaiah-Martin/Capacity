@@ -7,7 +7,7 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet" media="screen">
     <script src="js/holder.js"></script>
-    <h1><small>Logo</small>    Capacity</h1>
+    <h1><small>Full</small>    Capacity</h1>
   </head>
   <body>
   <div class = "container">
@@ -22,7 +22,7 @@
 		</div>
 	</div> 
   </div>
-  	<h1>Basic Information</h1>
+  	<h1>Hello User, We'd like to know more about you.</h1>
   <br>
   <br>
   <div class= "container-fluid">
@@ -32,13 +32,11 @@
 	    <div class="form-group">
 	    	<div class="col-sm-8">
 		  	<label for="textarea">Greatest Challenge you think you'll have this year</label>
-		    <textarea class="form-control" rows="3" name="focus"placeholder="example: Balancing my academic and social life"></textarea><br><br>
-		    <label for="text">Student Name</label>
-		    <input type="text" class="form-control" id="Name" name="Username" placeholder="example: Isaiah Martin" required=""><br><br>
+		    <textarea class="form-control" rows="3" name="focus"placeholder="example: Balancing my academic and social life" required></textarea><br><br>
 		    <label for="text">Date of Birth</label>
-		    <input type="text" class="form-control" id="Class" name="Birth" placeholder="example: 1/10/97"><br><br>
+		    <input type="text" class="form-control" id="Class" name="Birth" placeholder="example: 1/10/97" required><br><br>
 		    <label for="select">Class</label>
-		    <select class="form-control" name="Class">
+		    <select class="form-control" name="Class" required>
 			    <option>Freshman</option>
 			    <option>Sophomore</option>
 			    <option>Junior</option>
@@ -47,9 +45,9 @@
 		    <label for="text">Current Unweighted GPA</label>
 		    <input type="text" class="form-control" id="GPA" name="UPA" placeholder="example: 3.22"><br><br>
 		    <label for="text">Unweighted GPA You Want to Aim for Next Semester</label>
-		    <input type="text" class="form-control" id="GoalGPA" name="GPA"  placeholder="example: 3.63"><br><br>
+		    <input type="text" class="form-control" id="GoalGPA" name="GPA"  placeholder="example: 3.63" required><br><br>
 		    <label for="text">Community Service Hours You Want to Aim for Next Semester</label>
-		    <input type="text" class="form-control" id="GoalCS" name="CSH" placeholder="example: 50"><br><br>
+		    <input type="text" class="form-control" id="GoalCS" name="CSH" placeholder="example: 50" required><br><br>
 		  
 		  <button type="submit" class="btn btn-success">Reach Your Capacity</a>   
 		  </form>
@@ -87,13 +85,8 @@
 								<h4 align="right"></h4>
 							</div>
 						</div>
-
 					</div>
 			</div>
-	  	</div>
-  	</div>
-  </div>
-  </div>
 		  
       <!-- JavaScript plugins (requires jQuery) -->
    <script src="http://code.jquery.com/jquery.js"></script>
@@ -102,7 +95,7 @@
 <script>
 $(function(){
  $('#myCarousel').carousel({
- interval: 6000
+ interval: 8000
  });
 });
 </script>
