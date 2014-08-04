@@ -1,6 +1,6 @@
 import json
 
-from flask import Flask, request, redirect
+from flask import Flask, request, redirect, render_template
 app = Flask(__name__)
 
 scripture = open("info.txt", "a+")
@@ -12,10 +12,10 @@ def info():
 	global data
 	global scripture
 	I1 = request.form['EmailInput1'] 
-	I2 = request.form['Username'] 
-	data = [{'Email':'%s'%(I1)}, {'Student_Name':'%s'%(I2)}]
+	I2 = request.form['Nickname'] 
+	data = [{'Email':'%s'%(I1)}, {'Nickname':'%s'%(I2)}]
 	info = json.dumps(data)
-	return  redirect("http://localhost:8888/Capacity/Basic_Information.html", code=302)
+	return render_template("http://localhost:8888/Capacity/Basic_Information.html",EmailInput1=I1,Nickname=I2)
 
 data = data
 @app.route('/submit2', methods=['POST'])
@@ -32,6 +32,7 @@ def info2():
 	info = json.dumps(data, sort_keys=True)
 	return redirect("http://localhost:8888/Capacity/Student_Page.html", code=302)
 
+data = data
 @app.route('/submit3',methods=['POST'])
 def info3():
 	global info
@@ -53,6 +54,7 @@ def info3():
 	info = json.dumps(data, sort_keys=True)
 	return redirect("http://localhost:8888/Capacity/Community_Service.html", code=302)
 
+data = data
 @app.route('/submit4',methods=['POST'])
 def info4():
 	global info
@@ -76,13 +78,14 @@ def info4():
 	info = json.dumps(data, sort_keys=True)
 	return redirect("http://localhost:8888/Capacity/Sign_In.html", code=302)
 
+data = data
 @app.route('/submit5',methods=['POST'])
 def info5():
 	global info
 	global data
 	I1 = request.form['EmailInput2'] 
 	I2 = request.form['name'] 
-	data = data + [{'Email':'%s'%(I1)}, {'Duties':'%s'%(I2)}]
+	data = data + [{'Email':'%s'%(I1)}, {'Nickname':'%s'%(I2)}]
 	info = json.dumps(data, sort_keys=True)
 	scripture.write(info);
 	scripture.close()

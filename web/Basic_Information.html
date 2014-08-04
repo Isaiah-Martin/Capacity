@@ -7,22 +7,32 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet" media="screen">
     <script src="js/holder.js"></script>
-    <h1><small>Full</small>    Capacity</h1>
+    <div class="container-fluid">
+    	<div class="row">
+   			<div class="col-sm-9">
+    			<h1><small>Full</small>    Capacity</h1>
+    		</div>
+    	<div class="col-sm-3">
+   			<h3>{{ EmailInput1 }}</h3>
+    	</div>
+   		</div>
+   	</div>
   </head>
   <body>
-  <div class = "container">
+  <div class = "container-fluid">
 	<div class="navbar"> 
 		<div class ="navbar-inner">
-		  <ul class="nav nav-pills nav-justified">
+		  <ul class="nav nav-tabs nav-justified" role="tablist">
 			<li><a href="New_Beginnings.html">Home</a></li>
-			<li><a href="Us.html">About Us</a></li>  
-			<li><a href="Us.html#Contact_Us">Contact Us</a></li>
+			<li><a href="Us.html">About Capacity</a></li>  
 			<li class="active"><a href="Basic_Information.html">Basic Information</a></li>
 		  </ul>
 		</div>
 	</div> 
   </div>
-  	<h1>Hello User, We'd like to know more about you.</h1>
+  <div class="jumbotron">
+  	<h2>Hello {{ Nickname }}, We'd like to know more about you.</h2>
+  </div>
   <br>
   <br>
   <div class= "container-fluid">
