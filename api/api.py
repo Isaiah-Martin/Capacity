@@ -3,6 +3,7 @@ import json
 from flask import Flask, request, redirect, render_template
 app = Flask(__name__)
 
+path = []
 def notify():
 	return '<title>Capacity</title>\
     <meta name="viewport" content="width=device-width, initial-scale=1.0">\
@@ -19,9 +20,9 @@ def Join_Now():
 	scripture = open("accounts.txt", "a+")
 	I1 = request.form['EmailInput1'] 
 	I2 = request.form['Nickname'] 
-	data = [{'email':(I1)}, {'nickname':(I2)}]
-	if str(I1) in open('accounts.txt').read():
-		return redirect("http://localhost:8888/Capacity/Notified_New_Beginnings.html#", code=302)
+	data = [{'email':(I1)}, {'nickname':(I2)}, {'next'}]
+	if str(I1) in open('info.txt').read():
+		return redirect("http://localhost:8888/Capacity/Notified_New_Beginnings.html#notify", code=302)
 	else:
 		info = json.dumps(data)
 		scripture.write(info);

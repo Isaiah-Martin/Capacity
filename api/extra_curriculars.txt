@@ -1,1 +1,0 @@
-[{"extra_curricular_1": "Archery"}, {"extra_curricular_2": "Poetry"}, {"extra_curricular_3": "Programming Apps and Websites"}]
