@@ -1,0 +1,1 @@
+[{"focus": "go to all of the parties"}, {"dob": "10/15/99"}, {"class": "Sophomore"}, {"gpa": "2.98"}, {"gpa_goal": "3.75"}, {"community_service_goal": "50"}][{"focus": "go to all of the parties"}, {"dob": "10/15/99"}, {"class": "Sophomore"}, {"gpa": "2.98"}, {"gpa_goal": "3.75"}, {"community_service_goal": "50"}]

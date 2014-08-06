@@ -25,7 +25,7 @@
   <div class= "container-fluid">
   	<div class="row">
 	<div class="col-sm-6">
-		<h2>Current Log</h2>
+		<h2>Current Community Service Log</h2>
 		<table class="table table-bordered">
 		  <tr>
 		    <th>Date</th>
@@ -83,11 +83,20 @@
 		    <td>____________</td>
 		    <td>_________________</td>
 		  </tr>
-		</table>
+		</table><br>
+		<form class="form-horizontal" role="form" method="POST" action="http://localhost:5000/submit4">	
+	<div class="form-group">
+		<div class="offset-1 col-sm-11">
+		<h2>Community Service Hour Goal</h2>
+		<input type="text" class="form-control" id="GoalCS" name="CSH" placeholder="example: Get 10 hrs by the end of the semester" required>
+		<br><button type="submit" class="btn btn-success">Save Your Goals</button><br><br> 
+	</form></div></div>
+
 	</div><br><br>
-	<form class="form-horizontal" role="form" method="POST" action="http://localhost:5000/submit4">	
+	<form class="form-horizontal" role="form" method="POST" action="http://localhost:5000/submit4.5">	
 	<div class="form-group">
 	<div class="col-sm-offset-1 col-sm-4 col-sm-offset-1">
+			<h2 class="lead">Update your personal community service log here</h2>
 	    	<label for="text" required>Date</label>
 		    <input type="text" class="form-control" id="Date" name="Date"  placeholder="example: 11/4/14" required><br><br>
 		  	<label for="textarea">Duties</label>
@@ -98,15 +107,16 @@
 		    <input type="text" class="form-control" id="OrgLead" name="Organization" placeholder="example: Randy's Community Service Center" required><br><br>
 		    <label for="text">Organization Leader</label>
 		    <input type="text" class="form-control" id="OrgLead" name="OrgLead"  placeholder="example: Randy Billy Bob Thorton" required>
+		    <br><button type="submit" class="btn btn-success btn-block">Update</button>
 		  </div>
 		</div>
-
+		</form>
+		
 		</div>
 	</div>
 	</div>
   <div class= "container-fluid">
   <div class="row">
-  <div class="col-sm-12">
   	<h1>Total Hours/Goal Hours</h1>
   <div class="col-sm-12">
 		<h5 class="lead">How Close You Are To Your Goal</h5>
@@ -119,36 +129,12 @@
 	</div>
   </div>
   </div>
-    <div class= "container-fluid">
+  	<br>
+    <div class="container-fluid">
   	<div class="row">
-	<div class="col-sm-6">
-		<h2>Goals</h2>
-		<table class="table table-bordered">
-		<tr>
-			<td>For The Week</td>
-			<td>For The Month</td>
-			<td>For The Year"</td>
-		<tr>	
-			<td><input type="text" name="Wk1" required></td>
-			<td><input type="text" name="Wk2" required></td>
-			<td><input type="text" name="Wk3" required></td>
-		</tr>
-		<tr>
-			<td><input type="text" name="M1" required></td>
-			<td><input type="text" name="M2" required></td>
-			<td><input type="text" name="M3" required></td>
-		</tr> 
-		<tr>
-			<td><input type="text" name="Y1" required></td>
-			<td><input type="text" name="Y2" required></td>
-			<td><input type="text" name="Y3" required></td>
-		</tr>
-		</table>
-		<button type="submit" class="btn btn-success btn-block">Save</button><br><br> 
-	</div>
-	</div>
-	</div>
-	
+  		<a href="Community_Service.html" type="button" class="btn btn-block btn-success">Back To Top</a> 
+  	</div>
+  </div>
 </body>
 </html>
 	

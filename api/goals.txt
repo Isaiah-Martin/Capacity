@@ -1,0 +1,1 @@
+[{"week_goal_1": "a"}, {"week_goal_2": "a"}, {"week_goal_3": "a"}, {"month_goal_1": "a"}, {"month_goal_2": "a"}, {"month_goal_3": "a"}, {"year_goal_1": "a"}, {"year_goal_2": "a"}, {"Year_goal_3": "a"}][{"wk1": "a"}, {"wk2": "a"}, {"wk3": "a"}, {"m1": "a"}, {"m2": "a"}, {"m3": "a"}, {"y1": "a"}, {"y2": "a"}, {"y3": "a"}]
