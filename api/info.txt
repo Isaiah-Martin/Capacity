@@ -1,1 +1,0 @@
-[{"email": "imartin@headroyce.org"}, {"nickname": "zay"}][{"focus": "Chemistry"}, {"dob": "1/1/1"}, {"class": "Sophomore"}, {"gpa": "3.0"}, {"gpa_goal": "3.8"}, {"community_service_goal": "50"}][{"email": "imartin@headroyce.org"}, {"nickname": "zay"}]
