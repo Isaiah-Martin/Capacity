@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Capacity</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+		<h1 id="top"><small>Full</small>   Capacity</h1>
+	</head>
+	<body>
+		<ul class="nav nav-tabs nav-justified" role="tablist">
+		  <li><a href="New_Beginnings.html">Home</a></li>
+		  <li><a href="Sign_In.html">Sign In</a></li>
+		  <li><a href="Us.html">About Capacity</a></li>
+		  <li class="active"><a href="Contact_Us.html">Contact Capacity</a>  
+	   </ul> <br><br>
+	    <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-4">
+                    <h1>Contact Us</h1>
+                    <form class="form-horizontal" id="exampleForm" role="form"  method="POST" action="http://localhost:5000/submit6">
+                        <div id="name-group" class="input-group">
+                            <label for="InputName" class="lead">Name</label>
+                            <input type="text" class="form-control" required name="C_name" id="exampleInputName" placeholder="Enter Name">
+                        </div>
+
+                        <br>
+
+                        <div id="email-group" class="input-group">
+                            <label for="InputEmail1" class="lead">Email address</label>
+                            <input type="email" class="form-control"  required name="email_add" id="exampleInputEmail1" placeholder="Enter email" >
+                        </div>
+
+                        <br>
+						<div id="concern" class="input-group">
+						      <label for="InputTextArea" class="lead">Concern or Comment</label>
+						      <textarea rows="5" required class="form-control" name="Worry" id="Worry" placeholder="What do you want me to know?"></textarea>
+					    	</div>
+						<br>
+                        <div id="submit-group" class="input-group">
+                            <button type="submit" class="btn btn-block btn-success">Submit</button>
+                        </div>
+                    </form>
+                    <div id="success-msg"></div><br><br>
+                </div>
+            </div>
+	</body>
+
+         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <!-- <script src="/js/jquery.min.js"></script> -->
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.js" type="text/javascript"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js" type="text/javascript"></script>
+
+        <script src="js/bootstrap.js"></script>
+
+    <script type="text/javascript">
+     $(function() {
+    //twitter bootstrap script
+        $('#exampleForm').validate({
+
+
+            rules: {
+                email_add: {
+                    required: true,
+                    email: true
+                },
+                C_Name: {
+                	required: true
+                },
+                Worry: {
+                	required: true
+                }
+            },
+            messages: {
+                email_add: "Please enter a valid email address",
+                C_Name: "Please enter your name",
+                Worry: "Please, tell me your problem"
+            },
+
+            submitHandler: function(form) {
+
+                // Console Output to see input when submit handler is called
+                console.log($(form).attr('action'));
+                console.log($(form).serialize());
+
+
+                // Check and remove errors if preset
+
+                if ($('#email-group').hasClass('has-error')) {
+                    // remove the error classx
+                    $('#email-group').removeClass('has-error');
+
+                }
+
+                if ($('p').hasClass('alert-danger')) {
+
+                    $('#message_error').remove();
+                } 
+                else {
+                    alert('Your message has been successfully sent!');
+                }
+
+            $.post( $(form).attr('action'), $(form).serialize() , function(data) {
+                console.log(data);
+                console.log(data.success);
+
+
+                var response = $.parseJSON(data);
+                if (response.success){
+                    // alert ('success');
+
+                    $(form)[0].reset();
+                    $(form).hide();  // Hide the Form
+                    $('#success-msg').append('<p class="alert alert-info text-center">' + response.message + '</p>' + '<br><a href="/Contact_Us.html" type="button" class="btn btn-block btn-success">Send another comment or concern</a>'
+                    });
+                } else {
+                    if (response.errors.email) {
+                        $('#email-group').addClass('has-error'); // add the error class to show red input
+                        $('#email-group').append('<span class="help-block"><small class="bg-danger">' + response.errors.email + '</small></span>' + '<br><a href="/Contact_Us.html" type="button" class="btn btn-block btn-success">Send another comment or concern</a>'
+                    }); // add the actual error message under our input
+
+                    } else if (response.errors.message) {
+
+                         // script was unable to send email message. let the user know
+                        $('#success-msg').append('<p id="message_error" class="alert alert-danger text-center">' + response.errors.message + '</p><br><a href="/Contact_Us.html" type="button" class="btn btn-block btn-success">Send another comment or concern</a>'
+                    }
+                }
+            });
+
+
+        }
+        });
+    });// Close function
+    </script>
+</html>

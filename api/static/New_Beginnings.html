@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Capacity</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <script src="js/holder.js"></script>
+    <h1 id="top"><small>Full</small>   Capacity</h1>
+  </head>
+  <body>
+  	
+	  <ul class="nav nav-tabs nav-justified" role="tablist">
+		  <li class="active"><a href="New_Beginnings.html">Home</a></li>
+		  <li><a href="Sign_In.html">Sign In</a></li>
+		  <li><a href="Us.html">About Capacity</a></li>
+		  <li><a href="Contact_Us.html">Contact Capacity</a>  
+	   </ul>  
+	  	<div class="jumbotron">
+	  	<div class="container-fluid">
+	  		<div class="row"> 
+				<h1 class="lead"><strong>Capacity</strong>: Rise above the norm</h1>
+			</div>
+	  	</div>
+	  	</div>
+  
+		<div class= "container-fluid">
+			<div class="row">
+				<div class="col-sm-4">
+					<h2 class="lead">Capacity is designed to help high school students make that transformation to the next level. From poor to average, average to good, and good to great. Capacity is for all high school students who have a drive to become better. <strong>Join today and reach your full capacity!</strong>
+				</div>
+				<div class="col-sm-offset-2 col-sm-6">
+				<h2 class="lead">With Capacity You Can</h2>
+				<ul>
+					<li class="lead">Log your community service hours with ease</li>
+					<li class="lead">Spend time on quality activities outside of school</li>
+					<li class="lead">Constantly be inspired with quotes</li>
+					<li class="lead">Monitor your future high school plans</li>
+				</ul>
+				</div>
+			</div>
+		</div>
+		<div class="jumbotron">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-offset-4 col-sm-8">
+						<h1>Join Now!</h1>
+					</div>
+					<form class="form-horizontal" id="exampleForm" role="form"  method="POST" action="/submit">
+					  <div class="form-group" id="name-group">
+					    <label for="inputEmail3" class="col-sm-2 control-label"><p class="lead">Email</p></label>
+					    <div class="col-sm-7" id="email-group">
+					      <input type="text" id="exampleInputName" class="form-control" name="email" placeholder="What is your email?" required>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="inputPassword3" class="col-sm-2 control-label"><p class="lead">Nickname</p></label>
+					    <div class="col-sm-7">
+					      <input type="text" class="form-control" id="exampleInputEmail1" name="nickname" placeholder="What is your nickname?" required>
+					    </div>
+					  </div>
+					    <div class="form-group">
+					    <div class="col-sm-offset-2 col-sm-10">
+					      <button type="submit" class="btn btn-success">Join Now!</a>
+					    </div>
+					  </div>
+					</form>
+					<div id="success-msg"></div>
+				</div>
+			</div>
+		</div>
+				<br>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="thumbnail">
+					<br><strong>
+					<p class="lead">There are two types of people: Those who wish to become great, and those who have a drive to become great and become great. If you want to see what you can do, grow and achieve join Capacity now.
+					</p></strong>
+					</div>
+				</div>
+		</div>
+  <br>
+  <div class="container-fluid">
+  	<div class="row">
+  		<a href="New_beginnings.html#top" type="button" class="btn btn-block btn-success">Back To Top</a> 
+  	</div>
+  </div>
+  </body>
+
+           <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <!-- <script src="/js/jquery.min.js"></script> -->
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.js" type="text/javascript"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js" type="text/javascript"></script>
+
+        <script src="js/bootstrap.js"></script>
+
+    <script type="text/javascript">
+     $(function() {
+    //twitter bootstrap script
+        $('#exampleForm').validate({
+
+
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                },
+                nickname: {
+                	required: true
+                }
+            },
+            messages: {
+                email_add: "Please enter a valid email address",
+                C_Name: "Please enter your name"
+            },
+
+            submitHandler: function(form) {
+
+                // Console Output to see input when submit handler is called
+                console.log($(form).attr('action'));
+                console.log($(form).serialize());
+
+
+                // Check and remove errors if preset
+
+                if ($('#email-group').hasClass('has-error')) {
+                    // remove the error classx
+                    $('#email-group').removeClass('has-error');
+
+                }
+
+                if ($('p').hasClass('alert-danger')) {
+
+                    $('#message_error').remove();
+                } 
+                else {
+                    alert('Thank you for joining!');
+                }
+
+            $.post( $(form).attr('action'), $(form).serialize() , function(data) {
+                console.log(data);
+                console.log(data.success);
+
+
+                var response = $.parseJSON(data);
+                if (response.success){
+                    // alert ('success');
+
+                    $(form)[0].reset();
+                    $(form).hide();  // Hide the Form
+                    $('#success-msg').append('<p class="alert alert-info text-center">' + response.message + '</p>' + '<br><a href="/Contact_Us.html" type="button" class="btn btn-block btn-success">Send another comment or concern</a>'
+                    });
+                } else {
+                    if (response.errors.email) {
+                        $('#email-group').addClass('has-error'); // add the error class to show red input
+                        $('#email-group').append('<span class="help-block"><small class="bg-danger">' + response.errors.email + '</small></span>' + '<br><a href="/Contact_Us.html" type="button" class="btn btn-block btn-success">Send another comment or concern</a>'
+                    }); // add the actual error message under our input
+
+                    } else if (response.errors.message) {
+
+                         // script was unable to send email message. let the user know
+                        $('#success-msg').append('<p id="message_error" class="alert alert-danger text-center">' + response.errors.message + '</p><br><a href="/Contact_Us.html" type="button" class="btn btn-block btn-success">Send another comment or concern</a>'
+                    }
+                }
+            });
+
+
+        }
+        });
+    });// Close function
+    </script>   
+</html>

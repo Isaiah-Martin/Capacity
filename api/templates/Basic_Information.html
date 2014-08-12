@@ -13,7 +13,7 @@
     			<h1><small>Full</small>    Capacity</h1>
     		</div>
     	<div class="col-sm-3">
-   			<h3>{{ email }}</h3>
+   			<h3>email: {{ email }}</h3>
     	</div>
    		</div>
    	</div>
@@ -23,9 +23,14 @@
 			<li><a href="New_Beginnings.html">Home</a></li>
 			<li><a href="Us.html">About Capacity</a></li>  
 			<li class="active"><a href="Basic_Information.html">Basic Information</a></li>
+			<li><a href="Contact_Us.html">Contact Capacity</a></li>
 		  </ul>
   <div class="jumbotron">
-  	<h2>Hey {{ name }}, We'd like to know more about you.</h2>
+  	<h2>Hello {{ name }}, we'd like to know more about you.
+	  	<div class=col-sm-offset-2 col-sm-offset-10>
+		  	<small>This is where you can update your profile with basic information about {{name}}</small>
+	  	</div>
+  	</h2>
   </div>
   <br>
   <br>
