@@ -7,7 +7,7 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet" media="screen">
     <script src="js/holder.js"></script>
-    <h1>NickName</h1>
+    <h1>{{name}}</h1>
   </head>
   <body>
   <div class = "container">
@@ -29,15 +29,15 @@
   	<div class="col-sm-offset-1 col-sm-10">
 		<h5 class="lead">How Close You Are To Your Goal</h5>
 			<div class="progress">
-				<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-	valuemin="0" aria-valuemax="100" style="width: 80%">Total Hours
-					<span class="sr-only">80% Complete (danger)</span>
+				<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="{{tot}}" aria-valuemin="0" aria-valuemax="{{max}}" style="width: {{tot}} %">Total Hours
+					<span class="sr-only">{{tot}} % Complete (danger)</span>
 				</div>
 			</div>
   	</div>
   	<div class="col-sm-offset-2 col-sm-8">
-					<form class="form-horizontal" role="form" method="POST" action="http://localhost:5000/submit4">	
+					<form class="form-horizontal" id="exampleForm" role="form" method="POST" action="http://localhost:5000/submit4">	
 						<div class="form-group">
-							<h2>Update Community Service Hour Goal</h2>
+							<h2>Update Community Service Hour Goal</h2><br><small>{{goal}}</small>
 							<input type="text" class="form-control" id="GoalCS" name="CSH" placeholder="example:40" required>
 							<br><button type="submit" class="btn btn-success">Update Goal</button><br><br> 
 							</form></div></div>
@@ -60,11 +60,11 @@
 		    <th>Organization Leader</th>
 		  </tr>
 		  <tr>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		    <td></td>
+		    <td>{{date}}</td>
+		    <td>{{duties}}</td>
+		    <td>{{time}}</td>
+		    <td>{{org}}</td>
+		    <td>{{ol}}</td>
 		  </tr>
 		  <tr>
 		    <td></td>
@@ -131,7 +131,7 @@
 		  	<div class="thumbnail">
 				<h3>Fun Facts</h3>
 					<ul>
-					<li class="lead">According to a CNN poll of 4,500 high schoolers, around 75% engage in “serious cheating", over half plagiarize directly from the Internet, and about 50% believe that copying answers doesn’t even count as cheating.</li>
+					<li class="lead">According to a CNN poll of 4,500 high schoolers, around 75% engage in "serious cheating", over half plagiarize directly from the Internet, and about 50% believe that copying answers does not even count as cheating.</li>
 					<li class="lead">20% of teens are clinically depressed.</li>
 					<li class="lead"> 50% of the most stressed-out female students believed their parents and guardians did not notice the mental and physical cracks forming.</li>
 

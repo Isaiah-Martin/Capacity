@@ -40,10 +40,10 @@
   	</div>
   	</div>
   <ul class="nav nav-pills nav-justified">
-  <li><a href="/submit2.html#Focus">Focus of the Year</a></li>
-  <li><a href="/submit2.html#Outside">Outside of School</a></li>
-  <li><a href="/submit2.html#Future">Future Planning</a></li>
-  <li><a href="/submit2.html#Comm_Serv">Community Service</a></li>
+  <li><a href="submit2.html#Focus">Focus of the Year</a></li>
+  <li><a href="submit2.html#Outside">Outside of School</a></li>
+  <li><a href="submit2.html#Future">Future Planning</a></li>
+  <li><a href="submit2.html#Comm_Serv">Community Service</a></li>
 </ul><br>
     <div class="container-fluid">
   	<form class="form-horizontal" role="form" method="POST" action="http://localhost:5000/submit3.5">
@@ -54,26 +54,33 @@
 		<div class="col-sm-offset-2 col-sm-8">
 				<h3 class="lead">Current Extra-Curricular Activities</h3>
 					<table class="table table-striped">
-                    <thead>
-                        <tr>
-                        <th>Number</th>
-                        <th>Extra-Curricular Activity</th>-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Loop to Build Table -->
-                        {% for entry in range(len(vlist)) %}
-                            <tr>
-                                <td>entry</td>
-                                <td>vlist[entry]</td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-					</div>
+						<thead>
+						<tr>
+							<th>Number</th>
+							<th>Extra-Curricular Activities</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>1</td>
+							<td>{{a}}</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>{{b}}</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>{{c}}</td>
+						</tr>
+						</tbody>
+					</table></div>
 						<br>
+						<h1 class="lead">Update your Extra Curricular's Here. Limit to 3</h1>
 						<input type="text" name="act1" class="form-control" id="EC1" placeholder="example: Programming Websites"><br>
-				<button type="submit" class="btn btn-success">Add Activity</button>
+						<input type="text" name="act2" class="form-control" id="EC2" placeholder="example: Drama"><br>
+						<input type="text" name="act3" class="form-control" id="EC3" placeholder="example: Photography">
+				<button type="submit" class="btn btn-success">Update</button>
 	</form>
 			<h3 class="lead">Tips</h3>
 				<ol>
@@ -95,6 +102,66 @@
 		<div class="col-sm-offset-2 col-sm-10">
 		<ul>
 		<div class="jumbotron">
+
+			<div class="col-sm-offset-2 col-sm-8">
+				<h3 class="lead">Current Extra-Curricular Activities</h3>
+					<table class="table table-striped">
+						<thead>
+						<tr>
+							<th>Type</th>
+							<th>Extra-Curricular Activities</th>
+							<th>Number</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>Week</td>
+							<td>{{a1}}</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>Week</td>
+							<td>{{a2}}</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>Week</td>
+							<td>{{a3}}</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>Month</td>
+							<td>{{b1}}</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>Month</td>
+							<td>{{b2}}</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>Month</td>
+							<td>{{b3}}</td>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>Year</td>
+							<td>{{c1}}</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>Year</td>
+							<td>{{c2}}</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>Year</td>
+							<td>{{c3}}</td>
+							<td>3</td>
+						</tr>
+						</tbody>
+					</table></div>
+
 		<li class="lead">For The Week</li>
 			<input type="text" name="WG1" class="form-control" id="Wk1" placeholder="example: Do 100 pushups a day for 5 days a week by the end of the week" required><br>
 			<input type="text" name="WG2" class="form-control" id="Wk2" placeholder="example: Get no lower than a B on all my upcoming tests this week" required><br>
@@ -127,7 +194,7 @@
 			<a href="Community_Service.html"><button type="button" class="btn btn-lg btn-warning"><h2>Update Community Service</h2></button></a><br><br>
 			<h5 class="lead">How Close You Are To Your Goal</h5>
 			<div class="progress">
-				<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="{{total}}" aria-	valuemin="0" aria-valuemax="{{hrs}}" style="width: {{total}}%">{{total}} complete
+				<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="int({{total}})" aria-	valuemin="0" aria-valuemax="int({{hrs}})" style="width: int({{total}})%">{{total}} complete
 					<span class="sr-only">{{total}}% Complete(danger)</span>
 				</div>
 		    </div>
@@ -143,16 +210,83 @@
   	</div>
   </div>
   
-        <!-- JavaScript plugins (requires jQuery) -->
-   <script src="http://code.jquery.com/jquery.js"></script>
-   <!-- Include all compiled plugins (below), or include individual files as needed -->
-   <script src="js/bootstrap.js"></script>
-<script>
-$(function(){
- $('#myCarousel').carousel({
- interval: 3000
- });
-});
+         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <!-- <script src="/js/jquery.min.js"></script> -->
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.js" type="text/javascript"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js" type="text/javascript"></script>
+
+        <script src="js/bootstrap.js"></script>
+
+    <script type="text/javascript">
+		$(function(){
+		 $('#myCarousel').carousel({
+		 interval: 3000
+		 });
+		});
+
+		$(function() {
+    //twitter bootstrap script
+        $('#exampleForm').validate({
+
+
+
+ 				submitHandler: function(form) {
+
+                // Console Output to see input when submit handler is called
+                console.log($(form).attr('action'));
+                console.log($(form).serialize());
+
+
+                // Check and remove errors if preset
+
+                if ($('#email-group').hasClass('has-error')) {
+                    // remove the error classx
+                    $('#email-group').removeClass('has-error');
+
+                }
+
+                if ($('p').hasClass('alert-danger')) {
+
+                    $('#message_error').remove();
+                } 
+                else {
+                    alert('Your message has been successfully sent!');
+                }
+
+            $.post( $(form).attr('action'), $(form).serialize() , function(data) {
+                console.log(data);
+                console.log(data.success);
+
+
+                var response = $.parseJSON(data);
+                if (response.success){
+                    // alert ('success');
+
+                    $(form)[0].reset();
+                    $(form).hide();  // Hide the Form
+                    $('#success-msg').append('<p class="alert alert-info text-center">' + response.message + '</p>' + '<br><a href="/Contact_Us.html" type="button" class="btn btn-block btn-success">Send another comment or concern</a>'
+                    });
+                } else {
+                    if (response.errors.email) {
+                        $('#email-group').addClass('has-error'); // add the error class to show red input
+                        $('#email-group').append('<span class="help-block"><small class="bg-danger">' + response.errors.email + '</small></span>' + '<br><a href="/Contact_Us.html" type="button" class="btn btn-block btn-success">Send another comment or concern</a>'
+                    }); // add the actual error message under our input
+
+                    } else if (response.errors.message) {
+
+                         // script was unable to send email message. let the user know
+                        $('#success-msg').append('<p id="message_error" class="alert alert-danger text-center">' + response.errors.message + '</p><br><a href="/Contact_Us.html" type="button" class="btn btn-block btn-success">Send another comment or concern</a>'
+                    }
+                }
+            });
+
+
+        }
+        });
+    });// Close function
+    </script>
 </script>
   </body>
   </html>			

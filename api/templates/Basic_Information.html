@@ -7,13 +7,15 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet" media="screen">
     <script src="js/holder.js"></script>
+    <div class="jumbotron">
     <div class="container-fluid">
     	<div class="row">
-   			<div class="col-sm-9">
-    			<h1><small>Full</small>    Capacity</h1>
+   			<div class="col-sm-6">
+    			<h1>{{name}}</h1>
     		</div>
-    	<div class="col-sm-3">
-   			<h3>email: {{ email }}</h3>
+    	<div class="col-sm-6">
+   			<div class="thumbnail"><h3>{{ email }}</h3></div>
+    	</div> 
     	</div>
    		</div>
    	</div>
@@ -27,8 +29,8 @@
 		  </ul>
   <div class="jumbotron">
   	<h2>Hello {{ name }}, we'd like to know more about you.
-	  	<div class=col-sm-offset-2 col-sm-offset-10>
-		  	<small>This is where you can update your profile with basic information about {{name}}</small>
+	  	<div class="col-sm-offset-2 col-sm-offset-10">
+		  	<small>This is where you can update your profile, {{name}}</small>
 	  	</div>
   	</h2>
   </div>
@@ -57,7 +59,8 @@
 		    <input type="text" class="form-control" id="GoalGPA" name="GPA"  placeholder="example: 3.63" required><br><br>
 		    <label for="text">Community Service Hours You Want to Aim for Next Semester</label>
 		    <input type="text" class="form-control" id="GoalCS" name="CSH" placeholder="example: 50" required><br><br>
-		  
+		  <label for="text">Total Community Service Hours So Far</label>
+		    <input type="text" class="form-control" id="GoalCSH" name="hrs" placeholder="example: 0" required><br><br>
 		  <button type="submit" class="btn btn-success">Reach Your Capacity</a>   
 		  </form>
 		</div>
