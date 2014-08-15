@@ -29,9 +29,12 @@
   	<div class="col-sm-offset-1 col-sm-10">
 		<h5 class="lead">How Close You Are To Your Goal</h5>
 			<div class="progress">
-				<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="{{tot}}" aria-valuemin="0" aria-valuemax="{{max}}" style="width: {{tot}} %">Total Hours
-					<span class="sr-only">{{tot}} % Complete (danger)</span>
-				</div>
+			  <div class="progress-bar progress-bar-success" style="width: {{x}}%">{{total}} hrs complete
+			    <span class="sr-only">{{total}} hrs (success)</span>
+			  </div>
+			  <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: {{mod2}}%">{{hrs}} hrs left
+			    <span class="sr-only">{{hrs}} hrs left (warning)</span>
+			  </div>
 			</div>
   	</div>
   	<div class="col-sm-offset-2 col-sm-8">
@@ -59,6 +62,7 @@
 		    <th>Organization</th>
 		    <th>Organization Leader</th>
 		  </tr>
+		  {% for entry in template_data %}
 		  <tr>
 		    <td>{{date}}</td>
 		    <td>{{duties}}</td>
@@ -66,48 +70,7 @@
 		    <td>{{org}}</td>
 		    <td>{{ol}}</td>
 		  </tr>
-		  <tr>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		  </tr>
-		  <tr>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		  </tr>
-		  <tr>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		  </tr>
-		  <tr>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		  </tr>
-		  <tr>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		  </tr>
-		  <tr>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		    <td></td>
-		  </tr>
+		    {% endfor %}
 		</table></div></div>
 			<form class="form-horizontal" role="form" method="POST" action="http://localhost:5000/submit4.5">	
 	<div class="form-group">

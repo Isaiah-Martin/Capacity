@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
   <head>
     <title>Capacity</title>
@@ -16,7 +15,7 @@
 		  <ul class="nav nav-tabs nav-justified" role="tablist">
 			<li><a href="New_Beginnings.html">Home</a></li>
 			<li class="active"><a href="Student_Page.html">Student Page</a></li>
-			<li><a href="Basic_Information.html">Basic Information</a></li>
+			<li><a href="/Basic_Information.html">Basic Information</a></li>
 			<li><a href="Us.html">About Capacity</a></li>  
 			<li><a href="Contact_Us.html">Contact Capacity</a></li>
 		  </ul>
@@ -30,20 +29,20 @@
   	<div class="container-fluid">
   	<div class="row">
   		<div class="col-sm-3">
-  					<h2 id="Focus">Focus of the Year:</h2><p class="lead">{{Focus}}</p>
+  					<h2 id="Focus">Focus of the Year:<p class="lead">{{Focus}}</p></h2>
 				</div>
 		<div class="col-sm-offset-4 col-sm-5">
 		<br>
-			<h2>Aim towards a {{G_GPA}} GPA this year</h2>
+			<h2>Aim towards a <strong>{{G_GPA}}</strong> GPA this year</h2>
 		</div>
 	</div>
   	</div>
   	</div>
   <ul class="nav nav-pills nav-justified">
-  <li><a href="submit2.html#Focus">Focus of the Year</a></li>
-  <li><a href="submit2.html#Outside">Outside of School</a></li>
-  <li><a href="submit2.html#Future">Future Planning</a></li>
-  <li><a href="submit2.html#Comm_Serv">Community Service</a></li>
+  <li><a href="{{mode}}#Focus">Focus of the Year</a></li>
+  <li><a href="{{mode}}#Outside">Outside of School</a></li>
+  <li><a href="{{mode}}#Future">Future Planning</a></li>
+  <li><a href="{{mode}}#Comm_Serv">Community Service</a></li>
 </ul><br>
     <div class="container-fluid">
   	<form class="form-horizontal" role="form" method="POST" action="http://localhost:5000/submit3.5">
@@ -51,46 +50,46 @@
 	<div class="form-group">
 		<h2 id="Outside">Outside of School</h2>
 		<h3 class="lead">Extra-Curricular Activities</h3>
-		<div class="col-sm-offset-2 col-sm-8">
+		<div class="col-sm-offset-2 col-sm-8 col-sm-offset-2">
 				<h3 class="lead">Current Extra-Curricular Activities</h3>
+				<div class="table-responsive">
 					<table class="table table-striped">
 						<thead>
-						<tr>
+						<tr class="danger">
 							<th>Number</th>
 							<th>Extra-Curricular Activities</th>
 						</tr>
 						</thead>
 						<tbody>
-						<tr>
+						<tr class="success">
 							<td>1</td>
 							<td>{{a}}</td>
 						</tr>
-						<tr>
+						<tr class="success">
 							<td>2</td>
 							<td>{{b}}</td>
 						</tr>
-						<tr>
+						<tr class="success">
 							<td>3</td>
 							<td>{{c}}</td>
 						</tr>
 						</tbody>
-					</table></div>
-						<br>
-						<h1 class="lead">Update your Extra Curricular's Here. Limit to 3</h1>
-						<input type="text" name="act1" class="form-control" id="EC1" placeholder="example: Programming Websites"><br>
-						<input type="text" name="act2" class="form-control" id="EC2" placeholder="example: Drama"><br>
-						<input type="text" name="act3" class="form-control" id="EC3" placeholder="example: Photography">
+					</table></div></div>
+					<div class="col-sm-10">
+						<h3 class="lead">Update your Extra Curricular's Here. Limit to 3</h3>
+						<input type="text" name="act1" class="form-control" id="EC1" placeholder="example: Programming Websites" required><br>
+						<input type="text" name="act2" class="form-control" id="EC2" placeholder="example: Drama" required><br>
+						<input type="text" name="act3" class="form-control" id="EC3" placeholder="example: Photography" required><br>
 				<button type="submit" class="btn btn-success">Update</button>
-	</form>
-			<h3 class="lead">Tips</h3>
-				<ol>
-					<li class="lead">You must show dedication to any activity you decide to pursue.</li>
-					<li class="lead">Focus on a few core activities that your really enjoy and do those well</li>
-					<li class="lead">Balance your extra curricular activities and academics</li>
-				</ol>
+	</form></div></div>
+
+						<h3 class="lead">Tips</h3>
+							<ol>
+								<li class="lead">You must show dedication to any activity you decide to pursue.</li>
+								<li class="lead">Focus on a few core activities that your really enjoy and do those well</li>
+								<li class="lead">Balance your extra curricular activities and academics</li>
+							</ol>
 				</div>
-				<br>
-				<br>
 	</div>
 	</div>
 		<div class="container-fluid">
@@ -99,114 +98,116 @@
 		<div class="form-group">
 		<h2 id="Future">Future Planning</h2>
 		<h3 class="lead">Goals</h3>
-		<div class="col-sm-offset-2 col-sm-10">
 		<ul>
 		<div class="jumbotron">
 
-			<div class="col-sm-offset-2 col-sm-8">
+			<div class="col-sm-10 col-sm-offset-2">
 				<h3 class="lead">Current Extra-Curricular Activities</h3>
 					<table class="table table-striped">
 						<thead>
 						<tr>
 							<th>Type</th>
 							<th>Extra-Curricular Activities</th>
-							<th>Number</th>
+							<th>#</th>
 						</tr>
 						</thead>
 						<tbody>
-						<tr>
+						<tr class="success">
 							<td>Week</td>
 							<td>{{a1}}</td>
 							<td>1</td>
 						</tr>
-						<tr>
+						<tr class="success">
 							<td>Week</td>
 							<td>{{a2}}</td>
 							<td>2</td>
 						</tr>
-						<tr>
+						<tr class="success">
 							<td>Week</td>
 							<td>{{a3}}</td>
 							<td>3</td>
 						</tr>
-						<tr>
+						<tr class="warning">
 							<td>Month</td>
 							<td>{{b1}}</td>
 							<td>1</td>
 						</tr>
-						<tr>
+						<tr class="warning">
 							<td>Month</td>
 							<td>{{b2}}</td>
 							<td>2</td>
 						</tr>
-						<tr>
+						<tr class="warning">
 							<td>Month</td>
 							<td>{{b3}}</td>
 							<td>3</td>
 						</tr>
-						<tr>
+						<tr class="danger">
 							<td>Year</td>
 							<td>{{c1}}</td>
 							<td>1</td>
 						</tr>
-						<tr>
+						<tr class="danger">
 							<td>Year</td>
 							<td>{{c2}}</td>
 							<td>2</td>
 						</tr>
-						<tr>
+						<tr class="danger">
 							<td>Year</td>
 							<td>{{c3}}</td>
 							<td>3</td>
 						</tr>
 						</tbody>
 					</table></div>
-
-		<li class="lead">For The Week</li>
-			<input type="text" name="WG1" class="form-control" id="Wk1" placeholder="example: Do 100 pushups a day for 5 days a week by the end of the week" required><br>
-			<input type="text" name="WG2" class="form-control" id="Wk2" placeholder="example: Get no lower than a B on all my upcoming tests this week" required><br>
-			<input type="text" name="WG3" class="form-control" id="Wk3" placeholder="example: Master the song Don't Stop Believing for Jazz Band by the end of the week" required>
-			</form>  <br>
-		<li class="lead">For The Month</li>
-			<input type="text" name="MG1" class="form-control" id="M1" placeholder="example: Turn in all of my assignments this month" required><br>
-			<input type="text" name="MG2" class="form-control" id="M2" placeholder="example: Hangout my friends for 2 weekends out of the month by the end of the month" required><br>
-			<input type="text" name="MG3" class="form-control" id="M3" placeholder="example: Become a starter on my volleyball team by the end of the month" required>  
-			</form> <br>
-		<li class="lead">For The Year</li>
-			<input type="text" name="YG1" class="form-control" id="Y1" placeholder="example: Use my Capacity all school year" required><br>
-			<input type="text" name="YG2" class="form-control" id="Y2" placeholder="example: Use my planner all year" required><br>
-			<input type="text" name="YG3" class="form-control" id="Y3" placeholder="example: Get no greater than 2 detentions" required><br>
-			 <button type="submit" class="btn btn-success">Save Those Goals!</a>
-			</form>
+		<div class="col-sm-10">
+			<li class="lead">For The Week</li>
+				<input type="text" name="WG1" class="form-control" id="Wk1" placeholder="example: Do 100 pushups a day for 5 days a week by the end of the week" required><br>
+				<input type="text" name="WG2" class="form-control" id="Wk2" placeholder="example: Get no lower than a B on all my upcoming tests this week" required><br>
+				<input type="text" name="WG3" class="form-control" id="Wk3" placeholder="example: Master the song Don't Stop Believing for Jazz Band by the end of the week" required>
+				</form>  <br>
+			<li class="lead">For The Month</li>
+				<input type="text" name="MG1" class="form-control" id="M1" placeholder="example: Turn in all of my assignments this month" required><br>
+				<input type="text" name="MG2" class="form-control" id="M2" placeholder="example: Hangout my friends for 2 weekends out of the month by the end of the month" required><br>
+				<input type="text" name="MG3" class="form-control" id="M3" placeholder="example: Become a starter on my volleyball team by the end of the month" required>  
+				</form> <br>
+			<li class="lead">For The Year</li>
+				<input type="text" name="YG1" class="form-control" id="Y1" placeholder="example: Use my Capacity all school year" required><br>
+				<input type="text" name="YG2" class="form-control" id="Y2" placeholder="example: Use my planner all year" required><br>
+				<input type="text" name="YG3" class="form-control" id="Y3" placeholder="example: Get no greater than 2 detentions" required><br>
+				 <button type="submit" class="btn btn-success">Save Those Goals!</a>
+				</form>
+			</div>
 		</div>
-	</div>
-	</div>
-	</div>
-  </div>
-  </div>
-  
-  <div class="container-fluid">
-   <div class="jumbotron">
-  	<div class="row">
-  		<div class=" col-sm-12">
-	  		<div class="col-sm-offset-2 col-sm-10">
-			<h1 id="Comm_Serv">Community Service</h1>
-			<a href="Community_Service.html"><button type="button" class="btn btn-lg btn-warning"><h2>Update Community Service</h2></button></a><br><br>
-			<h5 class="lead">How Close You Are To Your Goal</h5>
-			<div class="progress">
-				<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="int({{total}})" aria-	valuemin="0" aria-valuemax="int({{hrs}})" style="width: int({{total}})%">{{total}} complete
-					<span class="sr-only">{{total}}% Complete(danger)</span>
+		</div>
+		</div>
+	  </div>
+	  </div>
+	  
+	  <div class="container-fluid">
+	   <div class="jumbotron">
+	  	<div class="row">
+	  		<div class=" col-sm-12">
+		  		<div class="col-sm-offset-2 col-sm-10">
+				<h1 id="Comm_Serv">Community Service</h1>
+				<a href="Community_Service.html" type="button" class="btn btn-lg btn-warning"><h2>Update Community Service</h2></a><br><br>
+				<h5 class="lead">How Close You Are To Your Goal</h5>
+				<div class="progress">
+				  <div class="progress-bar progress-bar-success" style="width: {{x}}%">{{total}} hrs complete
+				    <span class="sr-only">{{total}} hrs (success)</span>
+				  </div>
+				  <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: {{mod2}}%">{{hrs}} hrs left
+				    <span class="sr-only">{{hrs}} hrs left (warning)</span>
+				  </div>
 				</div>
-		    </div>
-	  		</div>
+		  		</div>
+			</div>
 		</div>
-	</div>
-  </div>
-  </div>
+	  </div>
+	  </div>
   
     <div class="container-fluid">
   	<div class="row">
-  		<a href="Student_Page.html#top" type="button" class="btn btn-block btn-success">Back To Top</a> 
+  		<a href="{{mode}}#top" type="button" class="btn btn-block btn-success">Back To Top</a> 
   	</div>
   </div>
   

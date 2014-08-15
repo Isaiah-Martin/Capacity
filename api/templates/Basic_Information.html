@@ -7,17 +7,19 @@
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet" media="screen">
     <script src="js/holder.js"></script>
-    <div class="jumbotron">
+    <div class="well well-lg">
     <div class="container-fluid">
     	<div class="row">
    			<div class="col-sm-6">
-    			<h1>{{name}}</h1>
+    			<h3>{{name}}</h3>
     		</div>
     	<div class="col-sm-6">
-   			<div class="thumbnail"><h3>{{ email }}</h3></div>
+   			<h3>{{ email }}</h3>
     	</div> 
     	</div>
    		</div>
+    </div>
+    </div>
    	</div>
   </head>
   <body>
@@ -39,13 +41,13 @@
   <div class= "container-fluid">
   	<div class="row">
 	<div class="col-sm-12">
-		<form class="form-horizontal" role="form" method="POST" action="http://localhost:5000/submit2">
+		<form class="form-horizontal" role="form" id="exampleForm" method="POST" action="http://localhost:5000/submit2">
 	    <div class="form-group">
 	    	<div class="col-sm-6">
 		  	<label for="textarea">Greatest Challenge you think you'll have this year</label>
 		    <textarea class="form-control" rows="3" name="focus"placeholder="example: Balancing my academic and social life" required></textarea><br><br>
-		    <label for="text">Date of Birth</label>
-		    <input type="text" class="form-control" id="Class" name="Birth" placeholder="example: 1/10/1997" required><br><br>
+		    <label for="text">Date of Birth(ISO format)</label>
+		    <input type="text" class="form-control" id="Class" name="Birth" placeholder="YYYY-MM-DD" required><br><br>
 		    <label for="select">Class</label>
 		    <select class="form-control" name="Class" required>
 			    <option>Freshman</option>
@@ -87,10 +89,57 @@
    <script src="js/bootstrap.js"></script>
 <script>
 $(function(){
- $('#myCarousel').carousel({
- interval: 8000
- });
+ 	$('#myCarousel').carousel({
+ 		interval: 8000
+ 	});
 });
+
+$(function() {
+    //twitter bootstrap script
+        $('#exampleForm').validate({
+
+
+            rules: {
+                UPA: {
+                    required: true,
+                    min: 0.00,
+                    max: 4.00,
+                    number: true
+                },
+                GPA: {
+                    required: true,
+                    min: 0.00,
+                    max: 4.00,
+                    number: true
+                },
+                CSH: {
+                    required: true,
+                    min: 0.00,
+                    max: 200.00,
+                    digits: true
+                },
+                hrs: {
+                    required: true,
+                    min: 0.00,
+                    max: 200.00,
+                    digits: true
+                },
+                Birth: {
+                    required: true,
+                    number: true,
+                    dateISO: true
+                }
+            },
+            messages: {
+                UPA: "Your GPA must be a decimal number between 0.00 and 4.00",
+                GPA: "Your GPA must be a decimal number between 0.00 and 4.00",
+                CSH: "Your Community Service Hours must be an integer between 0 and 2000",
+                hrs: "Your Community Service Hours must be an integer between 0 and 2000",
+                Birth: "ISO format is YYYY-MM-DD, example: 1997-11-15"
+            }
+
+        });
+    });// Close function
 </script>
   </body>
 </html>
