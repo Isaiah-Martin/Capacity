@@ -5,10 +5,9 @@
  */
 
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
-html {
-  font-family: sans-serif;
-  -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
+
+.jumbotron {
+    color: green;
 }
 body {
   margin: 0;
@@ -6199,5 +6198,142 @@ button.close {
   .hidden-print {
     display: none !important;
   }
+}
+html,body {
+  background-color: #26ff0d;
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+.Isaiah{
+	background-color: yellow;
+}
+
+.Zactive li{
+    background-color: pink;
+}
+/* navbar */
+.navbar-default {
+    background-color: red;
+    border-color: yellow;
+}
+/* link */
+.navbar-default li > a {
+    color: lime;
+}
+.navbar-default  > li > a:hover,
+.navbar-default  > li > a:focus {
+    color: red;
+    background-color: yellow;
+}
+.navbar-default  > .active > a, 
+.navbar-default  > .active > a:hover, 
+.navbar-default  > .active > a:focus {
+    color: red;
+    background-color: yellow;
+}
+.navbar-default  > .open > a, 
+.navbar-default  > .open > a:hover, 
+.navbar-default  > .open > a:focus {
+    color: red;
+    background-color: yellow;
+}
+/* caret */
+.navbar-default .navbar-nav > .dropdown > a .caret {
+    border-top-color: red;
+    border-bottom-color: red;
+}
+.navbar-default .navbar-nav > .dropdown > a:hover .caret,
+.navbar-default .navbar-nav > .dropdown > a:focus .caret {
+    border-top-color: red;
+    border-bottom-color: red;
+}
+.navbar-default .navbar-nav > .open > a .caret, 
+.navbar-default .navbar-nav > .open > a:hover .caret, 
+.navbar-default .navbar-nav > .open > a:focus .caret {
+    border-top-color: red;
+    border-bottom-color: red;
+}
+.navbar-Zay li > a {
+    color: red;
+}
+.navbar-Zay  > li > a:hover,
+.navbar-Zay  > li > a:focus {
+    color: lime;
+    background-color: red;
+}
+.Comm {
+    background-color: red;
+    border-color: lime;
+    color: lime;
+}
+
+.Comm > li > a{
+	color:lime;
+}
+.Comm > li > a:hover,
+.Comm > li > a:focus{
+	color: red;
+	background-color: lime;
+}
+.colorme{
+	color:lime;
+}
+.colorme2{
+	background-color: yellow;
+}
+.red{ 
+	background-color: #ff5757;
+}
+.blue{
+	background-color: #4d4dff
+}
+.orange{
+	background-color: #fd9b06
+}
+.green{
+	background-color: #06ff06;
+}
+.green2{
+	background-color: #00d000;
+}
+.uh{
+   background: url(http://www.ehdwalls.com/plog-content/images/1440x900/cities/01341_headingwest_1440x900.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.uh2{
+   background: url(http://www.aviationlawpretoria.co/wp-content/uploads/2013/11/sky_hd-wallpaper-2560x1440-1.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.w_blue{
+	color:blue;
+}
+.yellow{
+	color:yellow;
+}
+.blk{
+	color:#241f1f;
+}
+.pp{
+	background-color: #e46be4;
+}
+.navbar-SO li > a {
+    color:#241f1f;
+}
+.navbar-SO  > li > a:hover,
+.navbar-SO  > li > a:focus {
+    background-color: #e46be4;
+}
+.special{
+	color: black;
+}
+.white{
+	color: white;
 }
 /*# sourceMappingURL=bootstrap.css.map */

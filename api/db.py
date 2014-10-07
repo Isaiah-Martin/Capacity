@@ -13,6 +13,104 @@ def taken(v_obj,v_area):
 		return True
 	return False
 
+@app.route('/test', methods=['POST'])
+def info():
+	user_email_address = str(request.form['email'])
+
+	print "user_email_address = %s" % (user_email_address)
+
+	json_ = {"email_address" : user_email_address}
+	#Code Oakland
+	return json.dumps(json_)
+	#return render_template('/Method2.html', info=email)
+@app.route('/UHome')
+def home_page():
+	text2 = open("database.json", "r+")
+	json_data  = json.loads(text2.read())
+	name = json_data[len(json_data)-1]["nickname"]
+	email = json_data[len(json_data)-1]["email"]
+	return render_template("/UHome.html", name=name, email=email)
+
+@app.route('/UBasic_Information')
+def Basic_Information_route():
+	text2 = open("database.json", "r+")
+	json_data  = json.loads(text2.read())
+	name = json_data[len(json_data)-1]["nickname"]
+	email = json_data[len(json_data)-1]["email"]
+	return render_template("/UBasic_Information.html", name=name, email=email)
+
+@app.route('/Community_Service')
+def community_service_route():
+    text2 = open("database.json", "r+")
+    # open file database.json and store contents in variable
+    json_data  = json.loads(text2.read())
+    current = json_data[len(json_data)-1]["hrs"]
+    hrs = json_data[len(json_data)-1]["plan_hrs"]
+    percentage = int(int(current)/int(hrs) * 100)
+    difference = 100 - percentage
+    last = int(hrs) - int(current)
+    name = json_data[len(json_data)-1]["nickname"]
+    email = json_data[len(json_data)-1]["email"]
+    date = json_data[len(json_data)-1]["date"]
+    duties = json_data[len(json_data)-1]["duties"]
+    time = json_data[len(json_data)-1]["time"]
+    organization = json_data[len(json_data)-1]["organization"]
+    organization_leader = json_data[len(json_data)-1]["org_lead"]
+
+    # search contents for entry that is associated with community service info
+   
+
+    template_data = fetch()
+    intlist = []
+    for x in range(len(template_data["date"])):
+    	#print template_data["date"][x]
+    	intlist.append(x)
+    print intlist
+
+    # build data_object for all items that will be using in template
+
+    data_object = { "name":name, "email":email, "current_hrs":current, "last":last, "goal":hrs, "percentage":percentage, "difference":difference, "date":date, "duties":duties, "time":time, "organization":organization, "org_lead":organization_leader}
+
+    # build the list of dictionaries for community service goals
+
+    return render_template("/Community_Service.html", mode="/Community_Service", intlist=intlist, data=data_object, template_data=template_data)
+
+
+@app.route('/Student_Page')
+def student_page_route():
+	text2 = open("database.json","r+")
+	json_data = json.loads(text2.read())
+	A4 = json_data[len(json_data)-1]["week_goal_1"] 
+	A5 = json_data[len(json_data)-1]["week_goal_2"]
+	A6 = json_data[len(json_data)-1]["week_goal_3"] 
+	A7 = json_data[len(json_data)-1]["month_goal_1"] 
+	A8 = json_data[len(json_data)-1]["month_goal_2"] 
+	A9 = json_data[len(json_data)-1]["month_goal_3"]
+	A10 = json_data[len(json_data)-1]["year_goal_1"] 
+	A11 = json_data[len(json_data)-1]["year_goal_2"]
+	A12 = json_data[len(json_data)-1]["year_goal_3"] 
+	IA = json_data[len(json_data)-1]["ec1"]
+	IB = json_data[len(json_data)-1]["ec2"] 
+	IC = json_data[len(json_data)-1]["ec3"] 
+	I1 = json_data[len(json_data)-1]["focus"] 
+	I3 = json_data[len(json_data)-1]["dob"] 
+	I4 = json_data[len(json_data)-1]["class"] 
+	I5 = json_data[len(json_data)-1]["gpa"] 
+	I6 = json_data[len(json_data)-1]["goal_gpa"] 
+	I7 = json_data[len(json_data)-1]["plan_hrs"] 
+	I8 = json_data[len(json_data)-1]["hrs"] 
+	a = json_data[len(json_data)-1]["email"] 
+	b = json_data[len(json_data)-1]["nickname"]
+	mod = int(int(I8)/int(I7) * 100)
+	print mod
+	width2 = 100-mod
+	hrs = int(I7)-int(I8)
+	text2.seek(0)
+	json_data = json.dumps(json_data)	
+	text2.close()
+	return render_template('/Student_Page.html',mode="Student_Page",width=mod,a1=A4,a2=A5,a3=A6,b1=A7,b2=A8,b3=A9,c1=A10,c2=A11,c3=A12,a=IA,b=IB,c=IC,name=b, email=a, Focus=I1, G_GPA=I6, hrs=I8, left=hrs,width2=width2)
+
+
 @app.route('/submit', methods=['POST'])
 def Join_Now():
 	copy = open("accounts.txt","r+")
@@ -22,11 +120,11 @@ def Join_Now():
 	if taken(email,open("accounts.txt").read()) == True:
 		copy.close()
 		text2.close()
-		return redirect("/New_Beginnings.html")
+		return redirect("/Notify_NB.html")
 	else:
 		text2.seek(-1,2);
 		copy.write("," + email+'-'+nickname+ "]");
-		text2.write(',' + '{"email":"%s","nickname":"%s","focus":"c","dob":"d","class":"e","gpa":"f","goal_gpa":"g","plan_hrs":"h","hrs":"zx","ec1":"i","ec2":"i2","ec3":"i3","week_goal_1":"j", "week_goal_2":"k", "week_goal_3":"l","month_goal_1":"m", "month_goal_2":"n","month_goal_3":"o","year_goal_1":"p", "year_goal_2":"q", "year_goal_3":"r", "date":"t", "duties":"s", "time":"w", "organization":"x", "org_lead":"z"}'% (email,nickname) + ']');
+		text2.write(',' + '{"email":"%s","nickname":"%s","focus":"","dob":"","class":"","gpa":"","goal_gpa":"","plan_hrs":"","hrs":"","ec1":"","ec2":"","ec3":"","week_goal_1":"", "week_goal_2":"", "week_goal_3":"","month_goal_1":"", "month_goal_2":"","month_goal_3":"","year_goal_1":"", "year_goal_2":"", "year_goal_3":"", "date":[], "duties":[], "time":[], "organization":[], "org_lead":[]}'% (email,nickname) + "]");
 		copy.close()
 		text2.close()
 		return render_template('/Basic_Information.html', email=email, name=nickname)
@@ -54,33 +152,106 @@ def Basic_Info():
 	b = json_data[len(json_data)-1]["nickname"]
 	mod = int(int(I8)/int(I7) * 100)
 	print mod
-	mod2 = 100-mod
+	width2 = 100-mod
 	hrs = int(I7)-int(I8)
 	text2.seek(0)
 	json_data = json.dumps(json_data)
 	text2.write(json_data);
+	text2.truncate()
 	text2.close()
-	return render_template('/Student_Page.html',mode="submit2",x=mod, name=b, email=a, Focus=I1, G_GPA=I6, total=I8,hrs=hrs,mod2=mod2)
+	return render_template('/Student_Page.html',mode="submit2",width=mod, name=b, email=a, Focus=I1, G_GPA=I6, hrs=I8,left=hrs,width2=width2)
 
-@app.route('/submit3',methods=['POST'])
-def Personal_Goals():
+@app.route('/submit3.1',methods=['POST'])
+def Weekly_Goals():
 	text2 = open("database.json","r+")
 	A4 = request.form['WG1']
 	A5 = request.form['WG2']
 	A6 = request.form['WG3']
+	json_data = json.loads(text2.read())
+	A7 = json_data[len(json_data)-1]["month_goal_1"]
+	A8 = json_data[len(json_data)-1]["month_goal_2"]
+	A9 = json_data[len(json_data)-1]["month_goal_3"]
+	A10 = json_data[len(json_data)-1]["year_goal_1"]
+	A11 = json_data[len(json_data)-1]["year_goal_2"]
+	A12 = json_data[len(json_data)-1]["year_goal_3"]
+	json_data[len(json_data)-1]["week_goal_1"] = A4
+	json_data[len(json_data)-1]["week_goal_2"] = A5
+	json_data[len(json_data)-1]["week_goal_3"] = A6
+	IA = json_data[len(json_data)-1]["ec1"]
+	IB = json_data[len(json_data)-1]["ec2"] 
+	IC = json_data[len(json_data)-1]["ec3"] 
+	I1 = json_data[len(json_data)-1]["focus"] 
+	I3 = json_data[len(json_data)-1]["dob"] 
+	I4 = json_data[len(json_data)-1]["class"] 
+	I5 = json_data[len(json_data)-1]["gpa"] 
+	I6 = json_data[len(json_data)-1]["goal_gpa"] 
+	I7 = json_data[len(json_data)-1]["plan_hrs"] 
+	I8 = json_data[len(json_data)-1]["hrs"] 
+	a = json_data[len(json_data)-1]["email"] 
+	b = json_data[len(json_data)-1]["nickname"]
+	mod = int(int(I8)/int(I7) * 100)
+	print mod
+	width2 = 100-mod
+	hrs = int(I7)-int(I8)
+	text2.seek(0)
+	json_data = json.dumps(json_data)
+	text2.write(json_data);
+	text2.truncate()
+	text2.close()
+	return render_template('/Student_Page.html',mode="submit3.1",width=mod,a1=A4,a2=A5,a3=A6,b1=A7,b2=A8,b3=A9,c1=A10,c2=A11,c3=A12,a=IA,b=IB,c=IC,name=b, email=a, Focus=I1, G_GPA=I6, hrs=I8,left=hrs,width2=width2)
+
+@app.route('/submit3.2',methods=['POST'])
+def Monthly_Goals():
+	text2 = open("database.json","r+")
 	A7 = request.form['MG1']
 	A8 = request.form['MG2']  
 	A9 = request.form['MG3']
+	json_data = json.loads(text2.read())
+	A4 = json_data[len(json_data)-1]["week_goal_1"]
+	A5 = json_data[len(json_data)-1]["week_goal_2"]
+	A6 = json_data[len(json_data)-1]["week_goal_3"]
+	json_data[len(json_data)-1]["month_goal_1"] = A7
+	json_data[len(json_data)-1]["month_goal_2"] = A8
+	json_data[len(json_data)-1]["month_goal_3"] = A9
+	A10 = json_data[len(json_data)-1]["year_goal_1"]
+	A11 = json_data[len(json_data)-1]["year_goal_2"]
+	A12 = json_data[len(json_data)-1]["year_goal_3"]
+	IA = json_data[len(json_data)-1]["ec1"]
+	IB = json_data[len(json_data)-1]["ec2"] 
+	IC = json_data[len(json_data)-1]["ec3"] 
+	I1 = json_data[len(json_data)-1]["focus"] 
+	I3 = json_data[len(json_data)-1]["dob"] 
+	I4 = json_data[len(json_data)-1]["class"] 
+	I5 = json_data[len(json_data)-1]["gpa"] 
+	I6 = json_data[len(json_data)-1]["goal_gpa"] 
+	I7 = json_data[len(json_data)-1]["plan_hrs"] 
+	I8 = json_data[len(json_data)-1]["hrs"] 
+	a = json_data[len(json_data)-1]["email"] 
+	b = json_data[len(json_data)-1]["nickname"]
+	mod = int(int(I8)/int(I7) * 100)
+	print mod
+	width2 = 100-mod
+	hrs = int(I7)-int(I8)
+	text2.seek(0)
+	json_data = json.dumps(json_data)
+	text2.write(json_data);
+	text2.truncate()
+	text2.close()
+	return render_template('/Student_Page.html',mode="submit3.2",width=mod,a1=A4,a2=A5,a3=A6,b1=A7,b2=A8,b3=A9,c1=A10,c2=A11,c3=A12,a=IA,b=IB,c=IC,name=b, email=a, Focus=I1, G_GPA=I6, hrs=I8,left=hrs,width2=width2)
+
+@app.route('/submit3.3',methods=['POST'])
+def Yearly_Goals():
+	text2 = open("database.json","r+")
 	A10 = request.form['YG1'] 
 	A11 = request.form['YG2']
 	A12 = request.form['YG3']
 	json_data = json.loads(text2.read())
-	json_data[len(json_data)-1]["week_goal_1"] = A4
-	json_data[len(json_data)-1]["week_goal_2"] = A5
-	json_data[len(json_data)-1]["week_goal_3"] = A6
-	json_data[len(json_data)-1]["month_goal_1"] = A7
-	json_data[len(json_data)-1]["month_goal_2"] = A8
-	json_data[len(json_data)-1]["month_goal_3"] = A9
+	A4 = json_data[len(json_data)-1]["week_goal_1"]
+	A5 = json_data[len(json_data)-1]["week_goal_2"]
+	A6 = json_data[len(json_data)-1]["week_goal_3"]
+	A7 = json_data[len(json_data)-1]["month_goal_1"]
+	A8 = json_data[len(json_data)-1]["month_goal_2"]
+	A9 = json_data[len(json_data)-1]["month_goal_3"]
 	json_data[len(json_data)-1]["year_goal_1"] = A10
 	json_data[len(json_data)-1]["year_goal_2"] = A11
 	json_data[len(json_data)-1]["year_goal_3"] = A12
@@ -98,14 +269,14 @@ def Personal_Goals():
 	b = json_data[len(json_data)-1]["nickname"]
 	mod = int(int(I8)/int(I7) * 100)
 	print mod
-	mod2 = 100-mod
+	width2 = 100-mod
 	hrs = int(I7)-int(I8)
 	text2.seek(0)
 	json_data = json.dumps(json_data)
 	text2.write(json_data);
+	text2.truncate()
 	text2.close()
-	return render_template('/Student_Page.html',mode="submit3",x=mod,a1=A4,a2=A5,a3=A6,b1=A7,b2=A8,b3=A9,c1=A10,c2=A11,c3=A12,a=IA,b=IB,c=IC,name=b, email=a, Focus=I1, G_GPA=I6, total=I8,hrs=hrs,mod2=mod2)
-
+	return render_template('/Student_Page.html',mode="submit3.3",width=mod,a1=A4,a2=A5,a3=A6,b1=A7,b2=A8,b3=A9,c1=A10,c2=A11,c3=A12,a=IA,b=IB,c=IC,name=b, email=a, Focus=I1, G_GPA=I6, hrs=I8,left=hrs,width2=width2)
 	
 
 @app.route('/submit3.5',methods=['POST'])
@@ -129,40 +300,53 @@ def ECs():
 	b = json_data[len(json_data)-1]["nickname"]
 	mod = int(int(I8)/int(I7) * 100)
 	print mod
-	mod2 = 100-mod
+	width2 = 100-mod
 	hrs = int(I7)-int(I8)
 	text2.seek(0)
 	data = json.dumps(json_data)
 	text2.write(data);
+	text2.truncate()
 	text2.close()
-	return render_template("/Student_Page.html",x=mod,mode="submit3.5",a=IA,b=IB,c=IC, name=b, email=a, Focus=I1, G_GPA=I6, total=I8,hrs=hrs,mod2=mod2)
+	return render_template("/Student_Page.html",width=mod,mode="submit3.5",a=IA,b=IB,c=IC, name=b, email=a, Focus=I1, G_GPA=I6, left=hrs,width2=width2, hrs=I8)
 	
 
 @app.route('/submit4',methods=['POST'])
 def CS_Goal():
-	template_data = fetch()
 	text2 = open("database.json","r+")
 	I6 = request.form['CSH'] 
-	json_data = json.loads(text2)
-	json_data[len(json_data)-1]["plan_hrs"] = I6 
-	a = json_data[len(json_data)-1]["hrs"]
-	b = json_data[len(json_data)-1]["nickname"]
-	json_data = json.loads(text2)
-	A1 = json_data[len(json_data)-1]["date"] 
-	A2 = json_data[len(json_data)-1]["duties"]
-	A3 = json_data[len(json_data)-1]["time"] 
-	A4 = json_data[len(json_data)-1]["organization"] 
-	A5 = json_data[len(json_data)-1]["org_lead"] 
-	mod = int(int(a)/int(I6) * 100)
-	print mod
-	mod2 = 100-mod
-	hrs = int(I6)-int(a)
+	json_data = json.loads(text2.read())
+	json_data[len(json_data)-1]["plan_hrs"] = I6 	
+	current = json_data[len(json_data)-1]["hrs"]
+	hrs = json_data[len(json_data)-1]["plan_hrs"] 
+	name = json_data[len(json_data)-1]["nickname"]
+	email = json_data[len(json_data)-1]["email"]
+	date = json_data[len(json_data)-1]["date"] 
+	duties = json_data[len(json_data)-1]["duties"]
+	time = json_data[len(json_data)-1]["time"] 
+	organization = json_data[len(json_data)-1]["organization"] 
+	organization_leader = json_data[len(json_data)-1]["org_lead"] 
+	percentage = int(int(current)/int(hrs)*100)
+	difference = 100 - percentage
+	last = int(hrs) - int(current)
+
+	# search contents for entry that is associated with community service info
+   	template_data = fetch()
+
+   	# build data_object for all items that will be using in template
+   	data_object = { "name":name, "email":email, "current_hrs":current, "last":last, "goal":hrs, "percentage":percentage, "difference":difference, "date":date, "duties":duties, "time":time, "organization":organization, "org_lead":organization_leader}
+
+   	intlist = []
+   	for x in range(len(template_data["date"])):
+		#print template_data["date"][x]
+		intlist.append(x)
+	print intlist
+
 	text2.seek(0)
 	json_data = json.dumps(json_data)
 	text2.write(json_data);
+	text2.truncate()
 	text2.close()
-	return render_template("/Community_Service.html",x=mod, template_data=template_data, name=b, ol=A5, date=A1, duties=A2, time=A3, org= A4, goal=I6,hrs=hrs,mod2=mod2)
-
+	return render_template("/Community_Service.html",mode="/submit4", intlist=intlist, data=data_object, template_data=template_data)
 
 @app.route('/submit4.5',methods=['POST'])
 def Comm_Serv():
@@ -172,69 +356,132 @@ def Comm_Serv():
 	I3 = request.form['Time'] 
 	I4 = request.form['Organization'] 
 	I5 = request.form['OrgLead'] 
-	json_data = json.loads(text2)
-	json_data[len(json_data)-1]["date"] = I1 
-	json_data[len(json_data)-1]["duties"] = I2
-	json_data[len(json_data)-1]["time"] = I3
-	json_data[len(json_data)-1]["organization"] = I4
-	json_data[len(json_data)-1]["org_lead"] = I5
-	a = json_data[len(json_data)-1]["hrs"]
-	b = json_data[len(json_data)-1]["nickname"]
-	c = json_data[len(json_data)-1]["plan_hrs"]
-	mod = int(int(a)/int(c) * 100)
-	print mod
-	mod2 = 100-mod
-	hrs = int(c)-int(a)
-	text2.seek(0)
+
+	json_data = json.loads(text2.read())
+
+	json_data[len(json_data)-1]["date"].append(I1)
+	json_data[len(json_data)-1]["duties"].append(I2)
+	json_data[len(json_data)-1]["time"].append(I3)
+	json_data[len(json_data)-1]["organization"].append(I4)
+	json_data[len(json_data)-1]["org_lead"].append(I5)
+	print len(json_data),(len(json_data)-1)
+	print "\n%s\n"%(json_data[len(json_data)-1])
+
+	date = json_data[len(json_data)-1]["date"] 
+	duties = json_data[len(json_data)-1]["duties"]
+	time = json_data[len(json_data)-1]["time"]
+	increment = str(int(json_data[len(json_data)-1]["hrs"]) + int(I3))
+	json_data[len(json_data)-1]["hrs"] = increment
+	current = json_data[len(json_data)-1]["hrs"] 
+	hrs = json_data[len(json_data)-1]["plan_hrs"] 
+	name = json_data[len(json_data)-1]["nickname"]
+	email = json_data[len(json_data)-1]["email"]
+	organization = json_data[len(json_data)-1]["organization"] 
+	organization_leader = json_data[len(json_data)-1]["org_lead"] 
+	percentage = int(int(current)/int(hrs)*100)
+	difference = 100 - percentage
+	last = int(hrs) - int(current)
+
+
+	# search contents for entry that is associated with community service info
+   	template_data = fetch()
+
+   	# build data_object for all items that will be using in template
+   	data_object = { "name":name, "email":email, "current_hrs":current, "last":last, "goal":hrs, "percentage":percentage, "difference":difference, "date":date, "duties":duties, "time":time, "organization":organization, "org_lead":organization_leader}
+
+   	intlist = []
+   	for x in range(len(date)):
+		#print template_data["date"][x]
+		intlist.append(x)
+	print intlist
+
+   	text2.seek(0)
 	json_data = json.dumps(json_data)
 	text2.write(json_data);
+	text2.truncate()
 	text2.close()
-	return render_template("/Community_Service.html",x=mod, name=b,hrs=hrs,mod2=mod2, ol=I5, date=I1, duties=I2, time=I3, org= I4, goal=c)
+	return render_template("/Community_Service.html", mode="/submit4.5", intlist=intlist, data=data_object, template_data=template_data)
 
 @app.route('/submit5',methods=['POST'])
-def Sign_In():
-	copy = open("accounts.txt","r+")
+def SignIn():
 	text2 = open("database.json","r+")
-	json_data = json.loads(text2)
-	text2.seek(-1,2);
 	email = str(request.form['email'])
-	nickname = str(request.form['nickname'])
+	name = str(request.form['nickname'])
 	json_data = json.loads(text2.read())
-	if taken(email,open("accounts.txt").read()) == True:
-		for x in len(text2.read()):
-			for y in len(json_data):
-				if email == json_data[y]["email"]:
-					A4 = json_data[len(json_data)-1]["week_goal_1"] 
-					A5 = json_data[len(json_data)-1]["week_goal_2"]
-					A6 = json_data[len(json_data)-1]["week_goal_3"]
-					A7 = json_data[len(json_data)-1]["month_goal_1"]
-					A8 = json_data[len(json_data)-1]["month_goal_2"]
-					A9 = json_data[len(json_data)-1]["month_goal_3"]
-					A10 = json_data[len(json_data)-1]["year_goal_1"]
-					A11 = json_data[len(json_data)-1]["year_goal_2"]
-					A12 = json_data[len(json_data)-1]["year_goal_3"]
-					IA = json_data[y]["ec1"] 
-					IB = json_data[y]["ec2"] 
-					IC = json_data[y]["ec3"]
-					I1 = json_data[y]["focus"] 
-					I2 = json_data[y]["dob"] 
-					I3 = json_data[y]["class"] 
-					I4 = json_data[y]["gpa"]
-					I5 = json_data[y]["goal_gpa"]
-					I6 = json_data[y]["plan_hrs"] 
-					I7 = json_data[y]["hrs"] 
-					a = json_data[y]["email"] 
-					b = json_data[y]["nickname"]
-					mod = int(int(I6)/int(I7) * 100)
-					print mod
-					mod2 = 100-mod
-					hrs = int(I6)-int(I7)
-					text2.close() 
-					return render_template("/Student_Page.html",x=mod,a=IA,b=IB,c=IC, name=b, email=a, Focus=I1, G_GPA=I5, hrs=hrs,mod2=mod2, a1=A4,a2=A5,a3=A6,b1=A7,b2=A8,b3=A9,c1=A10,c2=A11)
-	else:
-		text2.close() 
-		return redirect("/Sign_In.html")
-	
+	for y in range(1,len(json_data)):
+		if email != str(json_data[y]["email"]) and name != str(json_data[y]["nickname"]):
+			text2.close()
+			return redirect("/Notify_SignIn.html")
+		else:
+			if email == str(json_data[y]["email"]) and name == str(json_data[y]["nickname"]):
+				text2.write(',' + '{"email":"%s","nickname":"","focus":"","dob":"","class":"","gpa":"","goal_gpa":"","plan_hrs":"","hrs":"","ec1":"","ec2":"","ec3":"","week_goal_1":"", "week_goal_2":"", "week_goal_3":"","month_goal_1":"", "month_goal_2":"","month_goal_3":"","year_goal_1":"", "year_goal_2":"", "year_goal_3":"", "date":[], "duties":[], "time":[], "organization":[], "org_lead":[]}'% (email) + "]");
+
+	    		json_data[len(json_data)-1]["nickname"] = json_data[y]["nickname"] 
+	    		json_data[len(json_data)-1]["focus"] = json_data[y]["focus"] 
+	    		json_data[len(json_data)-1]["dob"] = json_data[y]["dob"] 
+	    		json_data[len(json_data)-1]["class"] = json_data[y]["class"] 
+	    		json_data[len(json_data)-1]["gpa"] = json_data[y]["gpa"] 
+	    		json_data[len(json_data)-1]["goal_gpa"] = json_data[y]["goal_gpa"] 
+	    		json_data[len(json_data)-1]["plan_hrs"] = json_data[y]["plan_hrs"] 
+	    		json_data[len(json_data)-1]["hrs"] = json_data[y]["hrs"] 
+	    		json_data[len(json_data)-1]["week_goal_1"] = json_data[y]["week_goal_1"] 
+	    		json_data[len(json_data)-1]["week_goal_2"] = json_data[y]["week_goal_2"] 
+	    		json_data[len(json_data)-1]["week_goal_3"] = json_data[y]["week_goal_3"] 
+	    		json_data[len(json_data)-1]["month_goal_1"] = json_data[y]["month_goal_1"] 
+	    		json_data[len(json_data)-1]["month_goal_2"] = json_data[y]["month_goal_2"] 
+	    		json_data[len(json_data)-1]["month_goal_3"] = json_data[y]["month_goal_3"] 
+	    		json_data[len(json_data)-1]["year_goal_1"] = json_data[y]["year_goal_1"] 
+	    		json_data[len(json_data)-1]["year_goal_2"] = json_data[y]["year_goal_2"] 
+	    		json_data[len(json_data)-1]["year_goal_3"] = json_data[y]["year_goal_3"] 
+	    		json_data[len(json_data)-1]["ec1"] = json_data[y]["ec1"] 
+	    		json_data[len(json_data)-1]["ec2"] = json_data[y]["ec2"] 
+	    		json_data[len(json_data)-1]["ec3"] = json_data[y]["ec3"] 
+	    		json_data[len(json_data)-1]["email"] = json_data[y]["email"] 
+	    		json_data[len(json_data)-1]["date"] = json_data[y]["date"] 
+	    		json_data[len(json_data)-1]["duties"] = json_data[y]["duties"] 
+	    		json_data[len(json_data)-1]["time"] = json_data[y]["time"] 
+	    		json_data[len(json_data)-1]["organization"] = json_data[y]["organization"] 
+	    		json_data[len(json_data)-1]["org_lead"] = json_data[y]["org_lead"]
+
+	    		A4 = json_data[y]["week_goal_1"]
+	    		A5 = json_data[y]["week_goal_2"]
+	    		A6 = json_data[y]["week_goal_3"]
+	    		A7 = json_data[y]["month_goal_1"]
+	    		A8 = json_data[y]["month_goal_2"]
+	    		A9 = json_data[y]["month_goal_3"]
+	    		A10 = json_data[y]["year_goal_1"]
+	    		A11 = json_data[y]["year_goal_2"]
+	    		A12 = json_data[y]["year_goal_3"]
+	    		IA = json_data[y]["ec1"]
+	    		IB = json_data[y]["ec2"]
+	    		IC = json_data[y]["ec3"]
+	    		I1 = json_data[y]["focus"]
+	    		I3 = json_data[y]["dob"]
+	    		I4 = json_data[y]["class"]
+	    		I5 = json_data[y]["gpa"]
+	    		I6 = json_data[y]["goal_gpa"]
+	    		I7 = json_data[y]["plan_hrs"]
+	    		I8 = json_data[y]["hrs"]
+	    		a = json_data[y]["email"]
+	    		b = json_data[y]["nickname"]
+	    		email = json_data[y]["email"]
+	    		date = json_data[y]["date"]
+	    		duties = json_data[y]["duties"]
+	    		time = json_data[y]["time"]
+	    		organization = json_data[y]["organization"]
+	    		organization_leader = json_data[y]["org_lead"]
+
+	    		mod = int(int(I8)/int(I7) * 100)
+	    		print mod
+	    		width2 = 100-mod
+	    		hrs = int(I7)-int(I8)
+	    		text2.seek(0)
+	    		json_data = json.dumps(json_data)
+	    		text2.write(json_data);
+	    		text2.truncate()
+	    		text2.close()
+	    		return render_template('/Student_Page.html',mode="Student_Page",width=mod,a1=A4,a2=A5,a3=A6,b1=A7,b2=A8,b3=A9,c1=A10,c2=A11,c3=A12,a=IA,b=IB,c=IC,name=b, email=a, Focus=I1, G_GPA=I6, hrs=I8, left=hrs,width2=width2)
+
 	  
 
 
@@ -255,11 +502,10 @@ def handle():
 
     return json.dumps(json_return)
 
-
-@app.route('/hello/')
-@app.route('/hello/<name>')
+@app.route('/hello/<email>',  methods=['POST'])
 def hello(name=None):
-    return render_template('hello.html', name=name)
+	email = request.form['email']
+	return render_template('hello.html', email=email)
 
 
 

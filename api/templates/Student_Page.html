@@ -1,75 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html class="uh">
   <head>
     <title>Capacity</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet" media="screen">
     <script src="js/holder.js"></script>
-    <h1 id="top">Welcome {{name}}!</h1>
-  </head>
-  <body>
-  <div class = "container-fluid">
-	<div class="navbar"> 
-		<div class ="navbar-inner">
-		  <ul class="nav nav-tabs nav-justified" role="tablist">
-			<li><a href="New_Beginnings.html">Home</a></li>
-			<li class="active"><a href="Student_Page.html">Student Page</a></li>
-			<li><a href="/Basic_Information.html">Basic Information</a></li>
-			<li><a href="Us.html">About Capacity</a></li>  
-			<li><a href="Contact_Us.html">Contact Capacity</a></li>
+    	<div class="row blk">
+   			<div class="col-sm-9">
+    			<h3>{{name}}</h3>
+    		</div>
+	    	<div class="col-sm-3">
+	   			<ul class="nav nav-pills navbar-right navbar-SO">
+		   			<li><a href="Home.html"><h4>Sign Out</h4></a></li>
+	   			</ul>
+	    	</div> 
+    	</div>
+		  <ul class="nav nav-tabs nav-justified navbar-default" role="tablist">
+			<li><a href="/UHome">Home</a></li>
+			<li><a href="/UBasic_Information">Basic Information</a></li>
+			<li class="Zactive"><a href="/Student_Page">Student Page</a></li>
+			<li><a href="/Community_Service">Community Service</a></li>
+			<li><a href="U_Us.html">About Capacity</a></li>  
+			<li><a href="U_Contact_Us.html">Contact Capacity</a></li>  
 		  </ul>
-		</div>
-	</div> 
-  </div>
-
-
-  	
-  	<div class="jumbotron">
+	</head>
+	
+	
+	<body class="uh">
+  	<div class="jumbotron Isaiah">
   	<div class="container-fluid">
   	<div class="row">
-  		<div class="col-sm-3">
-  					<h2 id="Focus">Focus of the Year:<p class="lead">{{Focus}}</p></h2>
+  		<div class="col-sm-5">
+  					<h2>Focus of the Year:<p class="lead">{{Focus}}</p></h2>
 				</div>
-		<div class="col-sm-offset-4 col-sm-5">
+		<div class="col-sm-offset-1 col-sm-6">
 		<br>
-			<h2>Aim towards a <strong>{{G_GPA}}</strong> GPA this year</h2>
+			<h2>Aim towards a <u><strong>{{G_GPA}}</strong></u> GPA this year</h2>
 		</div>
 	</div>
   	</div>
   	</div>
-  <ul class="nav nav-pills nav-justified">
+  <ul class="nav nav-pills nav-justified navbar-Zay">
   <li><a href="{{mode}}#Focus">Focus of the Year</a></li>
   <li><a href="{{mode}}#Outside">Outside of School</a></li>
   <li><a href="{{mode}}#Future">Future Planning</a></li>
   <li><a href="{{mode}}#Comm_Serv">Community Service</a></li>
 </ul><br>
-    <div class="container-fluid">
+	<div class="jumbotron Isaiah">
+    <div class="container-fluid" id="Focus">
   	<form class="form-horizontal" role="form" method="POST" action="http://localhost:5000/submit3.5">
-  	<div class="jumbotron">
 	<div class="form-group">
 		<h2 id="Outside">Outside of School</h2>
-		<h3 class="lead">Extra-Curricular Activities</h3>
+		<h3 class="lead">{{name}}'s Extra-Curricular Activities</h3>
 		<div class="col-sm-offset-2 col-sm-8 col-sm-offset-2">
-				<h3 class="lead">Current Extra-Curricular Activities</h3>
+				<h3 class="lead">{{name}}'s Current Activities</h3>
 				<div class="table-responsive">
-					<table class="table table-striped">
+					<table class="table">
 						<thead>
-						<tr class="danger">
+						<tr class="red">
 							<th>Number</th>
 							<th>Extra-Curricular Activities</th>
 						</tr>
 						</thead>
 						<tbody>
-						<tr class="success">
+						<tr class="green">
 							<td>1</td>
 							<td>{{a}}</td>
 						</tr>
-						<tr class="success">
+						<tr class="green">
 							<td>2</td>
 							<td>{{b}}</td>
 						</tr>
-						<tr class="success">
+						<tr class="green">
 							<td>3</td>
 							<td>{{c}}</td>
 						</tr>
@@ -80,10 +83,10 @@
 						<input type="text" name="act1" class="form-control" id="EC1" placeholder="example: Programming Websites" required><br>
 						<input type="text" name="act2" class="form-control" id="EC2" placeholder="example: Drama" required><br>
 						<input type="text" name="act3" class="form-control" id="EC3" placeholder="example: Photography" required><br>
-				<button type="submit" class="btn btn-success">Update</button>
+				<button type="submit" class="btn green">Update</button>
 	</form></div></div>
 
-						<h3 class="lead">Tips</h3>
+						<h3 class="lead">{{name}}, here are some tips</h3>
 							<ol>
 								<li class="lead">You must show dedication to any activity you decide to pursue.</li>
 								<li class="lead">Focus on a few core activities that your really enjoy and do those well</li>
@@ -92,90 +95,124 @@
 				</div>
 	</div>
 	</div>
-		<div class="container-fluid">
-		<form class="form-horizontal" role="form" method="POST" action="http://localhost:5000/submit3">
-		<div class="jumbotron">
-		<div class="form-group">
-		<h2 id="Future">Future Planning</h2>
-		<h3 class="lead">Goals</h3>
-		<ul>
-		<div class="jumbotron">
-
-			<div class="col-sm-10 col-sm-offset-2">
-				<h3 class="lead">Current Extra-Curricular Activities</h3>
-					<table class="table table-striped">
-						<thead>
-						<tr>
-							<th>Type</th>
-							<th>Extra-Curricular Activities</th>
-							<th>#</th>
-						</tr>
-						</thead>
-						<tbody>
-						<tr class="success">
-							<td>Week</td>
+		
+		<div class="jumbotron Isaiah">
+		<div class="container-fluid" id="Future">
+		<div class="row">
+		<h2>Future Planning</h2>
+		<h3 class="lead">{{name}}'s Goals</h3>
+		<div class="col-sm-10" id="Week">
+		<h2>Week</h2>
+			<div class="col-sm-offset-1 col-sm-11">
+				<h3>Update Weekly Goals</h3>
+			</div>
+				<div class="col-sm-offset-2 col-sm-10">
+				<form class="form-horizontal" role="form" method="POST" action="http://localhost:5000/submit3.1">
+				<div class="form-group">
+				<input type="text" name="WG1" class="form-control" id="Wk1" placeholder="{{a1}}" required><br>
+				<input type="text" name="WG2" class="form-control" id="Wk2" placeholder="{{a2}}" required><br>
+				<input type="text" name="WG3" class="form-control" id="Wk3" placeholder="{{a3}}" required>
+				<br><button type="submit" class="btn btn-block green">Save</a>
+				</button></div></form></div>
+				<div class="col-sm-offset-1 col-sm-11">
+					<h2>{{name}}'s Weekly Goals</h2>
+				</div>
+				<div class="col-sm-offset-2 col-sm-10">
+				<table class="table">
+					<thead class="red">
+					<tr>
+						<th>Weekly Goal Number</th>
+						<th>Goal</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr class="green">
+							<td>1</td>
 							<td>{{a1}}</td>
-							<td>1</td>
 						</tr>
-						<tr class="success">
-							<td>Week</td>
+						<tr class="green">
+							<td>2</td>
 							<td>{{a2}}</td>
-							<td>2</td>
 						</tr>
-						<tr class="success">
-							<td>Week</td>
+						<tr class="green">
+							<td>3</td>
 							<td>{{a3}}</td>
-							<td>3</td>
 						</tr>
-						<tr class="warning">
-							<td>Month</td>
+					</tbody></table></div></div>
+		<div class="col-sm-10" id="Month">
+			<h2>Month</h2>
+			<div class="col-sm-offset-1 col-sm-11">
+				<h3>Update Monthly Goals</h3>
+			</div>
+			<div class="col-sm-offset-2 col-sm-10">
+				<form class="form-horizontal" role="form" method="POST" action="http://localhost:5000/submit3.2">
+				<div class="form-group">
+				<input type="text" name="MG1" class="form-control" id="M1" placeholder="{{b1}}" required><br>
+				<input type="text" name="MG2" class="form-control" id="M2" placeholder="{{b2}}" required><br>
+				<input type="text" name="MG3" class="form-control" id="M3" placeholder="{{b3}}" required>  
+				<br><button type="submit" class="btn btn-block green">Save</a>
+				</button></div></form></div>
+			<div class="col-sm-offset-1 col-sm-11">
+				<h3>{{name}}'s Monthly Goals</h3>
+			</div>
+			<div class="col-sm-offset-2 col-sm-10">
+				<table class="table">
+					<thead class="red">
+					<tr>
+						<th>Monthly Goal Number</th>
+						<th>Goal</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr class="green">
+							<td>1</td>
 							<td>{{b1}}</td>
-							<td>1</td>
 						</tr>
-						<tr class="warning">
-							<td>Month</td>
+						<tr class="green">
+							<td>2</td>
 							<td>{{b2}}</td>
-							<td>2</td>
 						</tr>
-						<tr class="warning">
-							<td>Month</td>
+						<tr class="green">
+							<td>3</td>
 							<td>{{b3}}</td>
-							<td>3</td>
 						</tr>
-						<tr class="danger">
-							<td>Year</td>
-							<td>{{c1}}</td>
+					</tbody></table></div></div> 
+		<div class="col-sm-10" id="Year">
+			<h2>Year</h2>
+			<div class="col-sm-offset-1 col-sm-11">
+				<h3>Update Yearly Goals</h3>
+			</div>
+			<div class="col-sm-offset-2 col-sm-10">
+				<form class="form-horizontal" role="form" method="POST" action="http://localhost:5000/submit3.3">
+				<div class="form-group">
+				<input type="text" name="YG1" class="form-control" id="Y1" placeholder="{{c1}}" required><br>
+				<input type="text" name="YG2" class="form-control" id="Y2" placeholder="{{c2}}" required><br>
+				<input type="text" name="YG3" class="form-control" id="Y3" placeholder="{{c3}}" required>
+				 <br><button type="submit" class="btn btn-block green">Save</a>
+				</button></div></form></div>
+				<div class="col-sm-offset-1 col-sm-11">
+					<h2>{{name}}'s Yearly Goals</h2>
+				</div>
+				<div class="col-sm-offset-2 col-sm-10">
+				<table class="table">
+					<thead class="red">
+						<th>Yearly Goal Number</th>
+						<th>Goal</th>
+					</thead>
+					<tbody>
+						<tr class="green">
 							<td>1</td>
+							<td>{{c1}}</td>
 						</tr>
-						<tr class="danger">
-							<td>Year</td>
-							<td>{{c2}}</td>
+						<tr class="green">
 							<td>2</td>
+							<td>{{c2}}</td>
 						</tr>
-						<tr class="danger">
-							<td>Year</td>
-							<td>{{c3}}</td>
+						<tr class="green">
 							<td>3</td>
+							<td>{{c3}}</td>
 						</tr>
-						</tbody>
-					</table></div>
-		<div class="col-sm-10">
-			<li class="lead">For The Week</li>
-				<input type="text" name="WG1" class="form-control" id="Wk1" placeholder="example: Do 100 pushups a day for 5 days a week by the end of the week" required><br>
-				<input type="text" name="WG2" class="form-control" id="Wk2" placeholder="example: Get no lower than a B on all my upcoming tests this week" required><br>
-				<input type="text" name="WG3" class="form-control" id="Wk3" placeholder="example: Master the song Don't Stop Believing for Jazz Band by the end of the week" required>
-				</form>  <br>
-			<li class="lead">For The Month</li>
-				<input type="text" name="MG1" class="form-control" id="M1" placeholder="example: Turn in all of my assignments this month" required><br>
-				<input type="text" name="MG2" class="form-control" id="M2" placeholder="example: Hangout my friends for 2 weekends out of the month by the end of the month" required><br>
-				<input type="text" name="MG3" class="form-control" id="M3" placeholder="example: Become a starter on my volleyball team by the end of the month" required>  
-				</form> <br>
-			<li class="lead">For The Year</li>
-				<input type="text" name="YG1" class="form-control" id="Y1" placeholder="example: Use my Capacity all school year" required><br>
-				<input type="text" name="YG2" class="form-control" id="Y2" placeholder="example: Use my planner all year" required><br>
-				<input type="text" name="YG3" class="form-control" id="Y3" placeholder="example: Get no greater than 2 detentions" required><br>
-				 <button type="submit" class="btn btn-success">Save Those Goals!</a>
-				</form>
+					</tbody></table>
 			</div>
 		</div>
 		</div>
@@ -183,31 +220,31 @@
 	  </div>
 	  </div>
 	  
-	  <div class="container-fluid">
-	   <div class="jumbotron">
+	   <div class="jumbotron Isaiah">
+	  <div class="container-fluid" id="Comm_Serv">
 	  	<div class="row">
 	  		<div class=" col-sm-12">
 		  		<div class="col-sm-offset-2 col-sm-10">
-				<h1 id="Comm_Serv">Community Service</h1>
-				<a href="Community_Service.html" type="button" class="btn btn-lg btn-warning"><h2>Update Community Service</h2></a><br><br>
+				<h1>Community Service</h1>
+				<a href="/Community_Service" type="button" class="btn btn-lg Comm"><h2>Update Community Service</h2></a><br><br>
 				<h5 class="lead">How Close You Are To Your Goal</h5>
-				<div class="progress">
-				  <div class="progress-bar progress-bar-success" style="width: {{x}}%">{{total}} hrs complete
-				    <span class="sr-only">{{total}} hrs (success)</span>
-				  </div>
-				  <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: {{mod2}}%">{{hrs}} hrs left
-				    <span class="sr-only">{{hrs}} hrs left (warning)</span>
-				  </div>
-				</div>
+					<div class="progress">
+					  <div class="progress-bar green2 progress-bar-striped active" style="width: {{width}}%">{{hrs}} hrs complete
+					    <span class="sr-only">{{hrs}} hrs (success)</span>
+					  </div>
+					  <div class="progress-bar red progress-bar" style="width: {{width2}}%">{{left}} hrs left
+					    <span class="sr-only">{{left}} hrs left (warning)</span>
+					  </div>
+					</div>
 		  		</div>
 			</div>
 		</div>
 	  </div>
 	  </div>
-  
+
     <div class="container-fluid">
   	<div class="row">
-  		<a href="{{mode}}#top" type="button" class="btn btn-block btn-success">Back To Top</a> 
+  		<a href="{{mode}}#top" type="button" class="btn btn-block navbar-default">Back To Top</a> 
   	</div>
   </div>
   

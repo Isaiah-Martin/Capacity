@@ -1,97 +1,116 @@
 <!DOCTYPE html>
 
-<html>
+<html class="uh">
   <head>
     <title>Capacity</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet" media="screen">
     <script src="js/holder.js"></script>
-    <h1>{{name}}</h1>
+    	<div class="row">
+   			<div class="col-sm-9">
+    			<h3>{{data.name}}</h3>
+    		</div>
+    	<div class="col-sm-3">
+   			<ul class="nav nav-pills navbar-right navbar-SO">
+		   		<li><a href="Home.html"><h4>Sign Out</h4></a></li>
+	   		</ul>
+    	</div> 
+   	</div>
   </head>
-  <body>
-  <div class = "container">
-	<div class="navbar"> 
-		<div class ="navbar-inner">
-		  <ul class="nav nav-tabs nav-justified" role="tablist">
-			<li><a href="New_Beginnings.html">Home</a></li>
-			<li><a href="Student_Page.html">Student Page</a></li>
-			<li><a href="Us.html">About Capacity</a></li>
-			<li><a href="Contact_Us.html">Contact Capacity</a></li>  
-		  </ul>
-		</div>
-	</div> 
-  </div>
-  <br>
-    <div class= "container-fluid">
+  <body class="uh">
+		  <ul class="nav nav-tabs nav-justified navbar-default" role="tablist">
+			<li><a href="/UHome">Home</a></li>
+			<li><a href="/UBasic_Information">Basic Information</a></li>
+			<li><a href="/Student_Page">Student Page</a></li>
+			<li class="Zactive"><a href="/Community_Service">Community Service</a></li>
+			<li><a href="U_Us.html">About Capacity</a></li>  
+			<li><a href="U_Contact_Us.html">Contact Capacity</a></li>  
+ 
+		  </ul><br>
+		<ul class="nav nav-pills nav-justified navbar-Zay">
+			  <li><a href="{{mode}}#Progress">Update Community Service Goal</a></li>
+			  <li><a href="{{mode}}#Log">Community Service Log</a></li>
+			  <li><a href="{{mode}}#Update">Update Community Service Log</a></li>
+			</ul></div>
+<div class="jumbotron Isaiah">
   <div class="row">   
-  	<h3>Total Hours/Goal Hours</h3>
+  	<h3 id="Progress">Current: {{data.current_hrs}} hrs/Total: {{data.goal}} hrs</h3>
   	<div class="col-sm-offset-1 col-sm-10">
 		<h5 class="lead">How Close You Are To Your Goal</h5>
 			<div class="progress">
-			  <div class="progress-bar progress-bar-success" style="width: {{x}}%">{{total}} hrs complete
-			    <span class="sr-only">{{total}} hrs (success)</span>
+			  <div class="progress-bar green2 progress-bar-striped active" style="width: {{data.percentage}}%">{{data.current_hrs}} hrs complete
+			    <span class="sr-only">{{data.current_hrs}} hrs (success)</span>
 			  </div>
-			  <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: {{mod2}}%">{{hrs}} hrs left
-			    <span class="sr-only">{{hrs}} hrs left (warning)</span>
+			  <div class="progress-bar red progress-bar" style="width: {{data.difference}}%">{{data.last}} hrs left
+			    <span class="sr-only">{{data.last}} hrs left (warning)</span>
 			  </div>
 			</div>
   	</div>
-  	<div class="col-sm-offset-2 col-sm-8">
-					<form class="form-horizontal" id="exampleForm" role="form" method="POST" action="http://localhost:5000/submit4">	
-						<div class="form-group">
-							<h2>Update Community Service Hour Goal</h2><br><small>{{goal}}</small>
-							<input type="text" class="form-control" id="GoalCS" name="CSH" placeholder="example:40" required>
-							<br><button type="submit" class="btn btn-success">Update Goal</button><br><br> 
-							</form></div></div>
+  	<div class="col-sm-offset-1 col-sm-8">
+		<form class="form-horizontal" id="exampleForm" role="form" method="POST" action="http://localhost:5000/submit4">	
+			<div class="form-group">
+				<h2 class="lead" id="Goal">Update Community Service Hour Goal<small> (currently {{data.goal}})</small></h2>
+				<input type="text" class="form-control" id="GoalCS" name="CSH" placeholder="example:40" required>
+				<br><button type="submit" class="btn green">Update Goal</button><br><br> 
+				</form></div></div>
 
 	</div>
-			</div>
+			</div></div>
 
 	</div>
   </div>
   </div>
+  <div class="jumbotron Isaiah">
   <div class= "container-fluid">
   	<div class="row">
-		<h2>Current Community Service Log</h2>
+  		<div class="col-sm-12">
+		<h2 id="Log">Current Community Service Log</h2>
 		<table class="table table-bordered">
-		  <tr>
+		<thead>
+		  <tr class="red">
 		    <th>Date</th>
 		    <th>Duties</th>
 		    <th>Time Spent</th>
 		    <th>Organization</th>
 		    <th>Organization Leader</th>
 		  </tr>
-		  {% for entry in template_data %}
-		  <tr>
-		    <td>{{date}}</td>
-		    <td>{{duties}}</td>
-		    <td>{{time}}</td>
-		    <td>{{org}}</td>
-		    <td>{{ol}}</td>
-		  </tr>
-		    {% endfor %}
-		</table></div></div>
+		  </thead>
+		  <tbody>
+		  	{% for x in intlist %}
+		  	<tr class="green">
+				<td>{{template_data.date[x]}}</td>
+				<td>{{template_data.duties[x]}}</td>
+				<td>{{template_data.time[x]}}</td>
+				<td>{{template_data.organization[x]}}</td>
+				<td>{{template_data.org_lead[x]}}</td>
+			</tr>
+			{% endfor %}
+		  </tbody>
+		</table>
+		</div>
+		</div>
+			
+			<div class="container-fluid">
+			<div class="row">
+			<div class="col-sm-6">
 			<form class="form-horizontal" role="form" method="POST" action="http://localhost:5000/submit4.5">	
-	<div class="form-group">
-	<div class="container-fluid">
-	<div class="row">
-	<div class="col-sm-8">
-			<h2 class="lead">Update your personal community service log here</h2>
+			<div class="form-group">
+			<h2 class="lead" id="Update">Update your personal community service log here</h2>
 	    	<label for="text" required>Date</label>
 		    <input type="text" class="form-control" id="Date" name="Date"  placeholder="example: 11/4/14" required><br><br>
 		  	<label for="textarea">Duties</label>
 		    <textarea class="form-control" rows="3" name="Duties" placeholder="example: Cleaning Bathrooms, Raking Leaves, and serving food" required></textarea><br><br>
-		    <label for="text">Time Spent Volunteering</label>
-		    <input type="text" class="form-control" id="TimeSpent" name="Time"  placeholder="example: 5hrs 15min" required><br><br>
+		    <label for="text">Hours Spent Volunteering</label>
+		    <input type="text" class="form-control" id="TimeSpent" name="Time"  placeholder="example: 3" required><br><br>
 		    <label for="text">Organization</label>
 		    <input type="text" class="form-control" id="OrgLead" name="Organization" placeholder="example: Randy's Community Service Center" required><br><br>
 		    <label for="text">Organization Leader</label>
 		    <input type="text" class="form-control" id="OrgLead" name="OrgLead"  placeholder="example: Randy Billy Bob Thorton" required>
-		    <br><button type="submit" class="btn btn-success btn-block">Update</button>
-		  </div><br>
-		  <div class="col-sm-4">
-		  	<div class="thumbnail">
+		    <br><button type="submit" class="btn green btn-block">Update</button>
+		  </form></div></div><br>
+		  <div class="col-sm-offset-2 col-sm-4">
+		  	<div class="thumbnail green">
 				<h3>Fun Facts</h3>
 					<ul>
 					<li class="lead">According to a CNN poll of 4,500 high schoolers, around 75% engage in "serious cheating", over half plagiarize directly from the Internet, and about 50% believe that copying answers does not even count as cheating.</li>
@@ -102,17 +121,14 @@
 			</div>
 
 		</div>
-		</form>
+		
 		
 		</div>
+	</div></div>
 	</div>
-	</div>
-
-		<br><br>
-  	<br>
     <div class="container-fluid">
   	<div class="row">
-  		<a href="Community_Service.html" type="button" class="btn btn-block btn-success">Back To Top</a> 
+  		<a href="/Community_Service" type="button" class="btn btn-block navbar-default">Back To Top</a> 
   	</div>
   </div>
 </body>
