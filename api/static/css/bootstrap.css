@@ -6206,7 +6206,7 @@ html,body {
       -ms-text-size-adjust: 100%;
 }
 .Isaiah{
-	background-color: yellow;
+	background-color: #bfbfbf;
 }
 
 .Zactive li{
@@ -6223,19 +6223,19 @@ html,body {
 }
 .navbar-default  > li > a:hover,
 .navbar-default  > li > a:focus {
-    color: red;
+    color: lime;
     background-color: yellow;
 }
 .navbar-default  > .active > a, 
 .navbar-default  > .active > a:hover, 
 .navbar-default  > .active > a:focus {
-    color: red;
+    color: lime;
     background-color: yellow;
 }
 .navbar-default  > .open > a, 
 .navbar-default  > .open > a:hover, 
 .navbar-default  > .open > a:focus {
-    color: red;
+    color: lime;
     background-color: yellow;
 }
 /* caret */
@@ -6280,7 +6280,7 @@ html,body {
 	color:lime;
 }
 .colorme2{
-	background-color: yellow;
+	background-color: #d6cfcf;
 }
 .red{ 
 	background-color: #ff5757;

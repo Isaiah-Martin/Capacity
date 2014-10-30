@@ -5,20 +5,28 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Bootstrap -->
 		<link href="css/bootstrap.css" rel="stylesheet" media="screen">
-		<h1 id="top">Capacity</h1>
+        <div class="special">
+		<h1 id="top">Capacity</h1></div>
 	</head>
-	<body class="uh">
+	<body class="uh yellow">
 		<ul class="nav nav-tabs nav-justified navbar-default" role="tablist">
-		  <li><a href="Home.html">Home</a></li>
+		  <li><a href="home.html">Home</a></li>
 		  <li><a href="Sign_In.html">Sign In</a></li>
 		  <li><a href="Us.html">About Capacity</a></li>
 		  <li class="Zactive"><a href="Contact_Us.html">Contact Capacity</a>  
 	   </ul> <br><br>
-	   <div class="colorme2">
-	    <div class="container-fluid">
+	   <div class="row">
+            <br>
+            <div class="col-sm-offset-4 col-sm-8">
+                <h1 class="special">Contact Us</h1>
+                </div>
+            </div>
+       </div>
+         <br><br>
+         
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-4 col-sm-offset-4">
-                    <h1>Contact Us</h1>
                     <form class="form-horizontal" id="exampleForm" role="form"  method="POST" action="http://localhost:5000/submit6">
                         <div id="name-group" class="input-group">
                             <label for="InputName" class="lead">Name</label>
@@ -33,19 +41,18 @@
                         </div>
 
                         <br>
-						<div id="concern" class="input-group">
-						      <label for="InputTextArea" class="lead">Concern or Comment</label>
-						      <textarea rows="5" required class="form-control" name="Worry" id="Worry" placeholder="What do you want me to know?"></textarea>
-					    	</div>
-						<br>
+                        <div id="concern" class="input-group">
+                              <label for="InputTextArea" class="lead">Concern or Comment</label>
+                              <textarea rows="5" required class="form-control" name="Worry" id="Worry" placeholder="What do you want me to know?"></textarea>
+                            </div>
+                        <br>
                         <div id="submit-group" class="input-group">
                             <button type="submit" class="btn btn-block btn-success">Submit</button>
                         </div>
                     </form>
                 </div>
-            </div>
-	    </div><br><br></div><br><br>
-	</body>
+        </div><br><br></div><br><br>
+    </body>
 
          <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <!-- <script src="/js/jquery.min.js"></script> -->
@@ -68,10 +75,10 @@
                     email: true
                 },
                 C_Name: {
-                	required: true
+                    required: true
                 },
                 Worry: {
-                	required: true
+                    required: true
                 }
             },
             messages: {
