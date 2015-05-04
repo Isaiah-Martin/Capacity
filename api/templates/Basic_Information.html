@@ -1,96 +1,76 @@
 <!DOCTYPE html>
-
-<html class="uh">
+<html>
   <head>
     <title>Capacity</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet" media="screen">
     <script src="js/holder.js"></script>
-    	<div class="row">
-   			<div class="col-sm-9">
-    			<h3>{{name}}</h3>
-    		</div>
-    		<div class="col-sm-3">
-   				<h3>{{ email }}</h3>
-   			</div> 
-    	</div>
-  
-		  <ul class="nav nav-tabs nav-justified navbar-default" role="tablist">
-			<li><a href="home.html">Home</a></li>
-			<li><a href="Us.html">About Capacity</a></li>  
-			<li class="Zactive"><a href="Basic_Information.html">Basic Information</a></li>
-			<li><a href="Contact_Us.html">Contact Capacity</a></li>
-		  </ul>
-		  </head>
+	</head>
 		  
-   	</div>
-  <body class="uh yellow"><br>
-    
-    <div class="thumbnail Isaiah blk">
-    <h2>Welcome back {{ name }}
-      <div class="col-sm-offset-2 col-sm-offset-10">
-        <small>Go ahead, update your profile.</small>
+  <body id="form">
+    <div class="container-fluid">
+      <div class="row">
+      <div class="col-lg-8">
+      <h1 id="top"><span class="glyphicon glyphicon-cloud"></span>Capacity</h1></div></div>
       </div>
-    </h2>
-  </div>
-  <br>
-  <br>
+
+    
   <div class= "container-fluid">
     <div class="row">
-  <div class="col-sm-12">
-    <form class="form-horizontal" role="form" id="exampleForm" method="POST" action="http://localhost:5000/submit2">
-      <div class="form-group">
-        <div class="col-sm-6">
-        <label for="textarea">Greatest Challenge you think you'll have this year</label>
-        <textarea class="form-control" rows="3" name="focus"placeholder="example: Balancing my academic and social life" required></textarea><br><br>
-        <label for="text">Day of Birth</label>
-        <input type="text" class="form-control" id="Class" name="Birth" placeholder="example: 10/15 (Month/Day)" required><br><br>
-        <label for="select">Class</label>
-        <select class="form-control" name="Class" required>
-          <option>Freshman</option>
-          <option>Sophomore</option>
-          <option>Junior</option>
-          <option>Senior</option>
-        </select><br><br>
-        <label for="text">Current Unweighted GPA</label>
-        <input type="text" class="form-control" id="GPA" name="UPA" placeholder="example: 3.22"><br><br>
-        <label for="text">Unweighted GPA You Want to Aim for Next Semester</label>
-        <input type="text" class="form-control" id="GoalGPA" name="GPA"  placeholder="example: 3.63" required><br><br>
-        <label for="text">Community Service Hours You Want to Aim for Next Semester</label>
-        <input type="text" class="form-control" id="GoalCS" name="CSH" placeholder="example: 50" required><br><br>
-      <label for="text">Total Community Service Hours So Far in This Semester</label>
-        <input type="text" class="form-control" id="GoalCSH" name="hrs" placeholder="example: 0" required><br><br>
-        <button type="submit" class="btn blk">Reach Your Capacity</a>   
-      </form>
-    </div>
-    <div class="col-sm-offset-1 col-sm-5">
-      <div class="thumbnail Isaiah blk">
-        <h3>Fun Facts</h3>
-          <ul>
-          <li class="lead">There are 4.5 million high school teachers in the US.</li>
-          <li class="lead"> 30 years ago, America was the leader in quantity and quality of high school diplomas. Today, our nation is ranked 18th out of 23 industrialized countries.</li>
-          <li class="lead">One third of U.S. High School students now have iPhones.</li>
-          <li class="lead">81% of online teenagers use social media sites.</li>
-          <li class="lead">If the 1.3 million dropouts from the Class of 2010 had graduated, the nation would have seen $337 billion more in earnings over the course of the lifetimes of students.</li>
+    <h2 class="lead">Hello {{ name }}.
+      <div class="col-sm-offset-2 col-sm-offset-10">
+        <small id="prompt2">Fill out the form below to create your profile.</small>
+    </h2></div>
+  <br>
+  <br>
+      <form class="form-horizontal" role="form" id="exampleForm" method="POST" action="http://192.168.1.66:5000/submit2">
+        <div class="form-group">
+          <div class="col-sm-6">
+          <label for="textarea">Greatest Challenge you think you'll have this year</label>
+          <textarea class="form-control" rows="3" name="focus"placeholder="example: Balancing my academic and social life" required></textarea><br><br>
+          <label for="text">Date of Birth</label>
+          <input type="text" class="form-control" id="Class" name="Birth" placeholder="example: example: 1997-11-15" required><br><br>
+          <label for="select">Class</label>
+          <select class="form-control" name="Class" required>
+            <option>Freshman</option>
+            <option>Sophomore</option>
+            <option>Junior</option>
+            <option>Senior</option>
+          </select><br><br>
+          <label for="text">Current Unweighted GPA</label>
+          <input type="text" class="form-control" id="GPA" name="UPA" placeholder="example: 3.22"><br><br>
+          <label for="text">Unweighted GPA You Want to Aim for Next Semester</label>
+          <input type="text" class="form-control" id="GoalGPA" name="GPA"  placeholder="example: 3.63" required><br><br>
+          <label for="text">Community Service Hours You Want to Aim for Next Semester</label>
+          <input type="text" class="form-control" id="GoalCS" name="CSH" placeholder="example: 50" required><br><br>
+        <label for="text">Total Community Service Hours So Far in This Semester</label>
+          <input type="text" class="form-control" id="GoalCSH" name="hrs" placeholder="example: 0" required><br><br>
+          <button type="submit" id="button">Reach Your Capacity</a>   
+        </form>
+      </div>
+      <!--facts-->
+      <div class="col-sm-offset-1 col-sm-5">
+      <div class="thumbnail special" id="formdata">
+          <h3>Fun Facts</h3>
+            <ul>
+            <li class="lead">There are 4.5 million high school teachers in the US.</li>
+            <li class="lead"> 30 years ago, America was the leader in quantity and quality of high school diplomas. Today, our nation is ranked 18th out of 23 industrialized countries.</li>
+            <li class="lead">One third of U.S. High School students now have iPhones.</li>
+            <li class="lead">81% of online teenagers use social media sites.</li>
+            <li class="lead">If the 1.3 million dropouts from the Class of 2010 had graduated, the nation would have seen $337 billion more in earnings over the course of the lifetimes of students.</li>
 
-        </ul>
-      </div>
-      <br><br>
-      </div>
-    </div>
+          </ul>
+        </div>
+        <br><br>
+        </div></div>
     
-      
-      <!-- JavaScript plugins (requires jQuery) -->
-   <script src="http://code.jquery.com/jquery.js"></script>
-   <!-- Include all compiled plugins (below), or include individual files as needed -->
-   <script src="js/bootstrap.js"></script>
-<script>
-$(function(){
-  $('#myCarousel').carousel({
-    interval: 8000
-  });
-});
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.js" type="text/javascript"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js" type="text/javascript"></script>
+
+        <script src="js/bootstrap.js"></script>
+
+  <script type="text/javascript">
 
 $(function() {
     //twitter bootstrap script
@@ -124,7 +104,6 @@ $(function() {
                 },
                 Birth: {
                     required: true,
-                    number: true,
                     dateISO: true
                 }
             },
@@ -137,10 +116,12 @@ $(function() {
             }
 
         });
-    });// Close function
+    });
+    // Close function
 </script>
   </body>
 </html>
+
 
   
     

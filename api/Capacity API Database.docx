@@ -1,3 +1,9 @@
+#Hello Viewer. This is the database for the website I made last summer called Capacity. The programming language I coded this document in is python using the api micro framework Flask. Capacity is a website that is designed to help high school students improve their grades, constantly set goals, and increase their involvement in extracurricular and community service activities. Capacity is for all high school students who have a drive to improve academically, socially, and extracurricularly. By using this product, high school students will be more organized by logging in their community service hours, monitoring their high school goals, and spending time on quality activities outside of school. I have been constantly revising this project with web developers and designers from tech startup Mindblown Labs. After completing my revision process, I will publish and institute this site in high schools as a studying aid.
+
+#I would also like to thank you for reviewing my Stanford Humanities Institute application. I am willing to connect with you in the future and learn more about process of reviewing Stanford applications. My email is imartin@headroyce.org. I also have a linkedIn profile at www.linkedin.com/in/IsaiahMartin. 
+
+#Please do not duplicate or copy any of the code below.
+
 from __future__ import division
 __author__ = 'Isaiah'
 
@@ -27,7 +33,7 @@ def info():
 def home_page():
 	text2 = open("database.json", "r+")
 	json_data  = json.loads(text2.read())
-	name = json_data[len(json_data)-1]["username"]
+	name = json_data[len(json_data)-1]["nickname"]
 	email = json_data[len(json_data)-1]["email"]
 	return render_template("/UHome.html", name=name, email=email)
 
@@ -35,7 +41,7 @@ def home_page():
 def Basic_Information_route():
 	text2 = open("database.json", "r+")
 	json_data  = json.loads(text2.read())
-	name = json_data[len(json_data)-1]["username"]
+	name = json_data[len(json_data)-1]["nickname"]
 	email = json_data[len(json_data)-1]["email"]
 	return render_template("/UBasic_Information.html", name=name, email=email)
 
@@ -49,7 +55,7 @@ def community_service_route():
     percentage = float(float(current)/float(hrs) * 100)
     difference = 100 - percentage
     last = float(hrs) - float(current)
-    name = json_data[len(json_data)-1]["username"]
+    name = json_data[len(json_data)-1]["nickname"]
     email = json_data[len(json_data)-1]["email"]
     date = json_data[len(json_data)-1]["date"]
     duties = json_data[len(json_data)-1]["duties"]
@@ -100,7 +106,7 @@ def student_page_route():
 	I7 = json_data[len(json_data)-1]["plan_hrs"] 
 	I8 = json_data[len(json_data)-1]["hrs"] 
 	a = json_data[len(json_data)-1]["email"] 
-	b = json_data[len(json_data)-1]["username"]
+	b = json_data[len(json_data)-1]["nickname"]
 	mod = float(float(I8)/float(I7) * 100)
 	print mod
 	width2 = 100-mod
@@ -116,18 +122,18 @@ def Join_Now():
 	copy = open("accounts.txt","r+")
 	text2 = open("database.json","r+")
 	email = str(request.form['email'])
-	username = str(request.form['username'])
-	if taken(email,text2) == True:
+	nickname = str(request.form['nickname'])
+	if taken(email,open("accounts.txt").read()) == True:
 		copy.close()
 		text2.close()
 		return redirect("/Notify_NB.html")
 	else:
 		text2.seek(-1,2);
-		copy.write("," + email+'-'+username+ "]");
-		text2.write(',' + '{"email":"%s","username":"%s","focus":"","dob":"","class":"","gpa":"","goal_gpa":"","plan_hrs":"","hrs":"","ec1":"","ec2":"","ec3":"","week_goal_1":"", "week_goal_2":"", "week_goal_3":"","month_goal_1":"", "month_goal_2":"","month_goal_3":"","year_goal_1":"", "year_goal_2":"", "year_goal_3":"", "date":[], "duties":[], "time":[], "organization":[], "org_lead":[]}'% (email,username) + "]");
+		copy.write("," + email+'-'+nickname+ "]");
+		text2.write(',' + '{"email":"%s","nickname":"%s","focus":"","dob":"","class":"","gpa":"","goal_gpa":"","plan_hrs":"","hrs":"","ec1":"","ec2":"","ec3":"","week_goal_1":"", "week_goal_2":"", "week_goal_3":"","month_goal_1":"", "month_goal_2":"","month_goal_3":"","year_goal_1":"", "year_goal_2":"", "year_goal_3":"", "date":[], "duties":[], "time":[], "organization":[], "org_lead":[]}'% (email,nickname) + "]");
 		copy.close()
 		text2.close()
-		return render_template('/Basic_Information.html', email=email, name=username)
+		return render_template('/Basic_Information.html', email=email, name=nickname)
 
 
 @app.route('/submit2', methods=['POST'])
@@ -149,7 +155,7 @@ def Basic_Info():
 	json_data[len(json_data)-1]["plan_hrs"] = I7
 	json_data[len(json_data)-1]["hrs"] = I8
 	a = json_data[len(json_data)-1]["email"] 
-	b = json_data[len(json_data)-1]["username"]
+	b = json_data[len(json_data)-1]["nickname"]
 	mod = float(float(I8)/float(I7) * 100)
 	print mod
 	width2 = 100-mod
@@ -188,7 +194,7 @@ def Weekly_Goals():
 	I7 = json_data[len(json_data)-1]["plan_hrs"] 
 	I8 = json_data[len(json_data)-1]["hrs"] 
 	a = json_data[len(json_data)-1]["email"] 
-	b = json_data[len(json_data)-1]["username"]
+	b = json_data[len(json_data)-1]["nickname"]
 	mod = float(float(I8)/float(I7) * 100)
 	print mod
 	width2 = 100-mod
@@ -227,7 +233,7 @@ def Monthly_Goals():
 	I7 = json_data[len(json_data)-1]["plan_hrs"] 
 	I8 = json_data[len(json_data)-1]["hrs"] 
 	a = json_data[len(json_data)-1]["email"] 
-	b = json_data[len(json_data)-1]["username"]
+	b = json_data[len(json_data)-1]["nickname"]
 	mod = float(float(I8)/float(I7) * 100)
 	print mod
 	width2 = 100-mod
@@ -266,7 +272,7 @@ def Yearly_Goals():
 	I7 = json_data[len(json_data)-1]["plan_hrs"] 
 	I8 = json_data[len(json_data)-1]["hrs"] 
 	a = json_data[len(json_data)-1]["email"] 
-	b = json_data[len(json_data)-1]["username"]
+	b = json_data[len(json_data)-1]["nickname"]
 	mod = float(float(I8)/float(I7) * 100)
 	print mod
 	width2 = 100-mod
@@ -297,7 +303,7 @@ def ECs():
 	I7 = json_data[len(json_data)-1]["plan_hrs"] 
 	I8 = json_data[len(json_data)-1]["hrs"] 
 	a = json_data[len(json_data)-1]["email"] 
-	b = json_data[len(json_data)-1]["username"]
+	b = json_data[len(json_data)-1]["nickname"]
 	mod = float(float(I8)/float(I7) * 100)
 	print mod
 	width2 = 100-mod
@@ -318,7 +324,7 @@ def CS_Goal():
 	json_data[len(json_data)-1]["plan_hrs"] = I6 	
 	current = json_data[len(json_data)-1]["hrs"]
 	hrs = json_data[len(json_data)-1]["plan_hrs"] 
-	name = json_data[len(json_data)-1]["username"]
+	name = json_data[len(json_data)-1]["nickname"]
 	email = json_data[len(json_data)-1]["email"]
 	date = json_data[len(json_data)-1]["date"] 
 	duties = json_data[len(json_data)-1]["duties"]
@@ -374,7 +380,7 @@ def Comm_Serv():
 	json_data[len(json_data)-1]["hrs"] = increment
 	current = json_data[len(json_data)-1]["hrs"] 
 	hrs = json_data[len(json_data)-1]["plan_hrs"] 
-	name = json_data[len(json_data)-1]["username"]
+	name = json_data[len(json_data)-1]["nickname"]
 	email = json_data[len(json_data)-1]["email"]
 	organization = json_data[len(json_data)-1]["organization"] 
 	organization_leader = json_data[len(json_data)-1]["org_lead"] 
@@ -406,17 +412,17 @@ def Comm_Serv():
 def SignIn():
 	text2 = open("database.json","r+")
 	email = str(request.form['email'])
-	name = str(request.form['username'])
+	name = str(request.form['nickname'])
 	json_data = json.loads(text2.read())
 	for y in range(1,len(json_data)):
-		if email != str(json_data[y]["email"]) and name != str(json_data[y]["username"]):
+		if email != str(json_data[y]["email"]) and name != str(json_data[y]["nickname"]):
 			text2.close()
 			return redirect("/Notify_SignIn.html")
 		else:
-			if email == str(json_data[y]["email"]) and name == str(json_data[y]["username"]):
-				text2.write(',' + '{"email":"%s","username":"","focus":"","dob":"","class":"","gpa":"","goal_gpa":"","plan_hrs":"","hrs":"","ec1":"","ec2":"","ec3":"","week_goal_1":"", "week_goal_2":"", "week_goal_3":"","month_goal_1":"", "month_goal_2":"","month_goal_3":"","year_goal_1":"", "year_goal_2":"", "year_goal_3":"", "date":[], "duties":[], "time":[], "organization":[], "org_lead":[]}'% (email) + "]");
+			if email == str(json_data[y]["email"]) and name == str(json_data[y]["nickname"]):
+				text2.write(',' + '{"email":"%s","nickname":"","focus":"","dob":"","class":"","gpa":"","goal_gpa":"","plan_hrs":"","hrs":"","ec1":"","ec2":"","ec3":"","week_goal_1":"", "week_goal_2":"", "week_goal_3":"","month_goal_1":"", "month_goal_2":"","month_goal_3":"","year_goal_1":"", "year_goal_2":"", "year_goal_3":"", "date":[], "duties":[], "time":[], "organization":[], "org_lead":[]}'% (email) + "]");
 
-	    		json_data[len(json_data)-1]["username"] = json_data[y]["username"] 
+	    		json_data[len(json_data)-1]["nickname"] = json_data[y]["nickname"] 
 	    		json_data[len(json_data)-1]["focus"] = json_data[y]["focus"] 
 	    		json_data[len(json_data)-1]["dob"] = json_data[y]["dob"] 
 	    		json_data[len(json_data)-1]["class"] = json_data[y]["class"] 
@@ -463,7 +469,7 @@ def SignIn():
 	    		I7 = json_data[y]["plan_hrs"]
 	    		I8 = json_data[y]["hrs"]
 	    		a = json_data[y]["email"]
-	    		b = json_data[y]["username"]
+	    		b = json_data[y]["nickname"]
 	    		email = json_data[y]["email"]
 	    		date = json_data[y]["date"]
 	    		duties = json_data[y]["duties"]

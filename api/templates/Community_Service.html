@@ -1,69 +1,69 @@
 <!DOCTYPE html>
 
-<html class="uh">
+<html>
   <head>
     <title>Capacity</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
     <script src="js/holder.js"></script>
-    	<div class="row">
-   			<div class="col-sm-9">
-    			<h3>{{data.name}}</h3>
-    		</div>
-    	<div class="col-sm-3">
-   			<ul class="nav nav-pills navbar-right navbar-SO">
-		   		<li><a href="Home.html"><h4>Sign Out</h4></a></li>
-	   		</ul>
-    	</div> 
-   	</div>
   </head>
-  <body class="uh">
-		  <ul class="nav nav-tabs nav-justified navbar-default" role="tablist">
-			<li><a href="/UHome">Home</a></li>
-			<li><a href="/UBasic_Information">Basic Information</a></li>
-			<li><a href="/Student_Page">Student Page</a></li>
-			<li class="Zactive"><a href="/Community_Service">Community Service</a></li>
-			<li><a href="U_Us.html">About Capacity</a></li>  
-			<li><a href="U_Contact_Us.html">Contact Capacity</a></li>  
+  <body id="form">
+	<div class="container-fluid">
+      <div class="row">
+      <div class="col-sm-8">
+      <h1 id="top"><span class="glyphicon glyphicon-cloud"></span>Capacity</h1>
+      </div>
+      <div class="col-sm-4">
+			<ul class="nav nav-pills navbar-right navbar-SO">
+   			<li><a href="home.html"><h4 id="button">Sign Out</h4></a></li>
+			</ul>
+	    	</div> 
+      </div>
+      </div>
+      	<br>
+		  <ul class="nav nav-pills nav-justified">
+			<!-- <li><a href="/UHome">Home</a></li> -->
+			<li role="presentation"><a href="/UBasic_Information"><div id="button">Basic Information</div></a></li>
+			<li role="presentation" id="button"><a href="/Student_Page"><div id="button">Student Page</div></a></li>
+			<li role="presentation" class="active"><a href="/Community_Service"><div id="button">Community Service</div></a></li>
+			<!-- <li><a href="U_Us.html">About Capacity</a></li>  
+			<li><a href="U_Contact_Us.html">Contact Capacity</a></li>   -->
  
-		  </ul><br>
+		  </ul><br><!--
 		<ul class="nav nav-pills nav-justified navbar-Zay">
 			  <li><a href="{{mode}}#Progress">Update Community Service Goal</a></li>
 			  <li><a href="{{mode}}#Log">Community Service Log</a></li>
 			  <li><a href="{{mode}}#Update">Update Community Service Log</a></li>
-			</ul></div>
-<div class="jumbotron Isaiah">
+			</ul> -->
+			</div>
+<div class="container-fluid">
   <div class="row">   
-  	<h3 id="Progress">Current: {{data.current_hrs}} hrs/Total: {{data.goal}} hrs</h3>
   	<div class="col-sm-offset-1 col-sm-10">
-		<h5 class="lead">How Close You Are To Your Goal</h5>
+		<h5 class="lead">How Close You Are To Your Goal ({{data.percentage}}%)</h5>
 			<div class="progress">
-			  <div class="progress-bar green2 progress-bar-striped active" style="width: {{data.percentage}}%">{{data.current_hrs}} hrs complete
+			  <div class="progress-bar progress-bar-striped active" id="green-bckg" style="width: {{data.percentage}}%">{{data.current_hrs}} hrs complete
 			    <span class="sr-only">{{data.current_hrs}} hrs (success)</span>
 			  </div>
-			  <div class="progress-bar red progress-bar" style="width: {{data.difference}}%">{{data.last}} hrs left
+			  <div class="progress-bar red progress-bar" id="red-bckg" style="width: {{data.difference}}%">{{data.last}} hrs left
 			    <span class="sr-only">{{data.last}} hrs left (warning)</span>
 			  </div>
 			</div>
   	</div>
-  	<div class="col-sm-offset-1 col-sm-8">
-		<form class="form-horizontal" id="exampleForm" role="form" method="POST" action="http://localhost:5000/submit4">	
+  	<div class="col-sm-offset-2 col-sm-6">
+		<form class="form-horizontal" id="exampleForm" role="form" method="POST" action="http://192.168.1.66:5000/submit4">	
 			<div class="form-group">
-				<h2 class="lead" id="Goal">Update Community Service Hour Goal<small> (currently {{data.goal}})</small></h2>
+				<h5 class="lead">Update Community Service Hour Goal<small> (currently {{data.goal}})</small></h5>
 				<input type="text" class="form-control" id="GoalCS" name="CSH" placeholder="example:40" required>
-				<br><button type="submit" class="btn green">Update Goal</button><br><br> 
+				<br><button type="submit" class="btn" id="button">Update Goal</button><br><br> 
 				</form></div></div>
 
+		</div>
 	</div>
-			</div></div>
-
 	</div>
-  </div>
-  </div>
-  <div class="jumbotron Isaiah">
   <div class= "container-fluid">
-  	<div class="row">
+  	<div class="row print" id="print-content">
   		<div class="col-sm-12">
 		<h2 id="Log">Current Community Service Log</h2>
 		<table class="table table-bordered">
@@ -71,7 +71,7 @@
 		  <tr class="red">
 		    <th>Date</th>
 		    <th>Duties</th>
-		    <th>Time Spent</th>
+		    <th>Time Spent (hrs) </th>
 		    <th>Organization</th>
 		    <th>Organization Leader</th>
 		  </tr>
@@ -87,30 +87,34 @@
 			</tr>
 			{% endfor %}
 		  </tbody>
-		</table>
+		</table></div></div>
+		<div class="row">
+		<div class="col-sm-5">
+			<form>
+			  <input type="button" onclick="printDiv('print-content')" value="Print Community Service Log" id="button"class="btn"/>
+			</form>
 		</div>
 		</div>
 			
 			<div class="container-fluid">
 			<div class="row">
-			<div class="col-sm-6">
-			<form class="form-horizontal" role="form" method="POST" action="http://localhost:5000/submit4.5">	
+			<div class="col-sm-offset-6 col-sm-6">
+			<form class="form-horizontal" role="form" method="POST" action="http://192.168.1.66:5000/submit4.5">	
 			<div class="form-group">
-			<h2 class="lead" id="Update">Update your personal community service log here</h2>
+			<h2 class="lead" id="Update">Update your personal community service</h2>
 	    	<label for="text" required>Date</label>
 		    <input type="text" class="form-control" id="Date" name="Date"  placeholder="example: 11/4/14" required><br><br>
 		  	<label for="textarea">Duties</label>
 		    <textarea class="form-control" rows="3" name="Duties" placeholder="example: Cleaning Bathrooms, Raking Leaves, and serving food" required></textarea><br><br>
 		    <label for="text">Hours Spent Volunteering</label>
-		    <input type="text" class="form-control" id="TimeSpent" name="Time"  placeholder="example: 3" required><br><br>
+		    <input type="text" class="form-control" id="TimeSpent" name="Time"  placeholder="example: 3.00" required><br><br>
 		    <label for="text">Organization</label>
 		    <input type="text" class="form-control" id="OrgLead" name="Organization" placeholder="example: Randy's Community Service Center" required><br><br>
 		    <label for="text">Organization Leader</label>
 		    <input type="text" class="form-control" id="OrgLead" name="OrgLead"  placeholder="example: Randy Billy Bob Thorton" required>
-		    <br><button type="submit" class="btn green btn-block">Update</button>
-		  </form></div></div><br>
-		  <div class="col-sm-offset-2 col-sm-4">
-		  	<div class="thumbnail green">
+		    <br><button type="submit" class="btn btn-block" id="button">Update</button>
+		  </form></div></div><br><!--
+		  <div class="col-sm-offset-1 col-sm-5">
 				<h3>Fun Facts</h3>
 					<ul>
 					<li class="lead">According to a CNN poll of 4,500 high schoolers, around 75% engage in "serious cheating", over half plagiarize directly from the Internet, and about 50% believe that copying answers does not even count as cheating.</li>
@@ -118,19 +122,30 @@
 					<li class="lead"> 50% of the most stressed-out female students believed their parents and guardians did not notice the mental and physical cracks forming.</li>
 
 				</ul>
-			</div>
+			</div> -->
 
 		</div>
 		
 		
 		</div>
 	</div></div>
-	</div>
+	</div> <!--
     <div class="container-fluid">
   	<div class="row">
-  		<a href="/Community_Service" type="button" class="btn btn-block navbar-default">Back To Top</a> 
+  		<a href="/Community_Service" type="button" class="btn btn-block navbar-default special">Back To Top</a> 
   	</div>
-  </div>
+  </div> -->
+
+  <script type="text/javascript">
+
+function printDiv(divName) {
+ var printContents = document.getElementById(divName).innerHTML;
+ w=window.open();
+ w.document.write(printContents);
+ w.print();
+ w.close();
+}
+</script>
 </body>
 </html>
 	
