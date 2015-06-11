@@ -3920,7 +3920,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
-  color: #555;
+  color: black;
   cursor: default;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -3983,7 +3983,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
   color: black;
-  background-color: yellow;
+  background-color: rgb(300,150,0);
 }
 .nav-stacked > li {
   float: none;
@@ -6579,6 +6579,14 @@ button.close {
   font-size: 30px;
 }
 
+#top2{
+  color: white;
+  font-style:oblique;
+  font-weight: lighter;
+  font-family: Georgia;
+  font-size: 30px;
+}
+
 .prompt{
   font-family: Comic;
   font-weight: bolder;
@@ -6621,13 +6629,32 @@ background-color: lime;
 }
 
 #form{
-  background: url(http://www.psdgraphics.com/file/colorful-triangles-background.jpg);
+  background: url(https://s-media-cache-ak0.pinimg.com/originals/b8/ca/2f/b8ca2f76b40cc5c321c6a7d7e421dabf.jpg);
+ /** background: url(http://www.psdgraphics.com/file/colorful-triangles-background.jpg);**/
   background-size: 100% auto;
   color: white;
 }
 
+#form2{
+  background: url(http://www.wallpaperup.com/uploads/wallpapers/2013/07/26/124271/a2af799eed5ed08b8e8d9bc7b914c148.jpg);
+ /** background: url(http://www.psdgraphics.com/file/colorful-triangles-background.jpg);**/
+  background-size: 100% auto;
+  color: white;
+}
+
+#form3{
+  background: url(http://cdn.wonderfulengineering.com/wp-content/uploads/2014/04/space-wallpaper-1.jpg);
+  background-size:100% auto ;
+  color:white;
+}
 #button{
   color:black;
+  font-family: sans-serif;
+  font-style: lighter;
+}
+
+#button2{
+  color:white;
   font-family: sans-serif;
   font-style: lighter;
 }
@@ -6645,13 +6672,17 @@ background-color: lime;
   background-color: lime;
 }
 
+#dgb{
+  background-color: green;
+}
+
 #shade-yellow{
-  background-color: yellow;
+  background-color: rgb(300,150,0);
 }
 
 #white-bckg{
   background-color: white;
-  border-radius: 45%;
+  border-radius: 15%;
 }
 
 #studentpage{
@@ -6662,6 +6693,11 @@ background-color: lime;
   font-weight: lighter;
 }
 #cs{
-  background: url(http://www.psdgraphics.com/file/crumpled-paper.jpg);
+  background: url(http://phandroid.s3.amazonaws.com/wp-content/uploads/2014/10/mountains.jpg);
 }
+
+#solid{
+  background-color: lime;
+}
+
 /*# sourceMappingURL=bootstrap.css.map */

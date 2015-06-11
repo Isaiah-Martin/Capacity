@@ -161,6 +161,51 @@ def Basic_Info():
 	text2.close()
 	return render_template('/Student_Page.html',mode="submit2",width=mod, name=b, email=a, Focus=I1, G_GPA=I6, hrs=I8,left=hrs,width2=width2)
 
+@app.route('/submit3',methods=['POST'])
+def allGoals():
+	text2 = open("database.json","r+")
+	A4 = request.form['WG1']
+	A5 = request.form['WG2']
+	A6 = request.form['WG3']
+	A7 = request.form['MG1']
+	A8 = request.form['MG2']  
+	A9 = request.form['MG3']
+	A10 = request.form['YG1'] 
+	A11 = request.form['YG2']
+	A12 = request.form['YG3']
+	json_data = json.loads(text2.read())
+	json_data[len(json_data)-1]["week_goal_1"] = A4
+	json_data[len(json_data)-1]["week_goal_2"] = A5
+	json_data[len(json_data)-1]["week_goal_3"] = A6
+	json_data[len(json_data)-1]["month_goal_1"] = A7
+	json_data[len(json_data)-1]["month_goal_2"] = A8
+	json_data[len(json_data)-1]["month_goal_3"] = A9
+	json_data[len(json_data)-1]["year_goal_1"] = A10
+	json_data[len(json_data)-1]["year_goal_2"] = A11
+	json_data[len(json_data)-1]["year_goal_3"] = A12
+	IA = json_data[len(json_data)-1]["ec1"]
+	IB = json_data[len(json_data)-1]["ec2"] 
+	IC = json_data[len(json_data)-1]["ec3"] 
+	I1 = json_data[len(json_data)-1]["focus"] 
+	I3 = json_data[len(json_data)-1]["dob"] 
+	I4 = json_data[len(json_data)-1]["class"] 
+	I5 = json_data[len(json_data)-1]["gpa"] 
+	I6 = json_data[len(json_data)-1]["goal_gpa"] 
+	I7 = json_data[len(json_data)-1]["plan_hrs"] 
+	I8 = json_data[len(json_data)-1]["hrs"] 
+	a = json_data[len(json_data)-1]["email"] 
+	b = json_data[len(json_data)-1]["username"]
+	mod = float(float(I8)/float(I7) * 100)
+	print mod
+	width2 = 100-mod
+	hrs = float(I7)-float(I8)
+	text2.seek(0)
+	json_data = json.dumps(json_data)
+	text2.write(json_data);
+	text2.truncate()
+	text2.close()
+	return render_template('/Student_Page.html',mode="submit3.2",width=mod,a1=A4,a2=A5,a3=A6,b1=A7,b2=A8,b3=A9,c1=A10,c2=A11,c3=A12,a=IA,b=IB,c=IC,name=b, email=a, Focus=I1, G_GPA=I6, hrs=I8,left=hrs,width2=width2)
+'''
 @app.route('/submit3.1',methods=['POST'])
 def Weekly_Goals():
 	text2 = open("database.json","r+")
@@ -278,7 +323,7 @@ def Yearly_Goals():
 	text2.close()
 	return render_template('/Student_Page.html',mode="submit3.3",width=mod,a1=A4,a2=A5,a3=A6,b1=A7,b2=A8,b3=A9,c1=A10,c2=A11,c3=A12,a=IA,b=IB,c=IC,name=b, email=a, Focus=I1, G_GPA=I6, hrs=I8,left=hrs,width2=width2)
 	
-
+'''
 @app.route('/submit3.5',methods=['POST'])
 def ECs():
 	text2 = open("database.json","r+")
@@ -390,8 +435,9 @@ def Comm_Serv():
    	data_object = { "name":name, "email":email, "current_hrs":current, "last":last, "goal":hrs, "percentage":percentage, "difference":difference, "date":date, "duties":duties, "time":time, "organization":organization, "org_lead":organization_leader}
 
    	intlist = []
-   	for x in range(len(template_data["date"])):
-		#print template_data["date"][x]
+   	x=0
+   	for x in range(len(template_data["date"])-1):
+		print template_data["date"][x]
 		intlist.append(x)
 	print intlist
 
@@ -511,7 +557,7 @@ def hello(name=None):
 
 if __name__ == "__main__":
 	app.debug = True
-	app.run('0.0.0.0')
+	app.run(host='0.0.0.0')
 
 
 
